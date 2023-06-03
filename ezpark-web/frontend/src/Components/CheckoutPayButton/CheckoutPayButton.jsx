@@ -13,7 +13,7 @@ const CheckoutPayButton = () => {
   const handlecheckbutton = async () => {
     const data = {
       book_id: 14,
-      slot_name: "Slot Name: Zone C -20",
+      slot_name: "Zone C -20",
       amount: amount,
       bill_no: 123,
       email: "testmail@gmail.com",
