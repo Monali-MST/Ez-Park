@@ -1,0 +1,24 @@
+{
+  "user_id": 124,
+  "action_id": 4,
+  "badge_id": 3,
+  "badge_name": "test badge name",
+  "exp_date": "2023-05-11",
+  "discount_data": [
+    {
+      "discount_name": "Gold Sales discount",
+      "badge_id": 1,
+      "discount_precentage": 65
+    },
+    {
+      "discount_name": "Silver Sales discount",
+      "badge_id": 2,
+      "discount_precentage": 45
+    },
+    {
+      "discount_name": "Bronze Sales discount",
+      "badge_id": 3,
+      "discount_precentage": 35
+    }
+  ]
+  }
