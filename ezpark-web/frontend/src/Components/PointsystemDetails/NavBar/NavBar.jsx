@@ -31,14 +31,13 @@ const NavBar = () => {
             <Nav.Link href="#discounts">Discounts</Nav.Link>
             <Nav.Link href="#refunds">Refund</Nav.Link>
             <Nav.Link href="/pointsystem">
-              {" "}
               <img
                 alt=""
                 src={pointImg}
                 width="30"
                 height="30"
                 className="d-inline-block align-center"
-              />{" "}
+              />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

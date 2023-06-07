@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import CheckoutPayButton from "../../Components/CheckoutPayButton/CheckoutPayButton";
 import NavBar from "../../Components/PointsystemDetails/NavBar/NavBar";
 
-const HomePage = () => {
+const HomePageM = () => {
   return (
     <div>
       <NavBar/>
@@ -54,4 +54,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePageM;
