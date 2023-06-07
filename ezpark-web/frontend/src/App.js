@@ -13,9 +13,12 @@ import DiscountSettings from "./Components/DiscountAdminSide/DiscountSettings";
 
 
 import UserDashboard from "./Pages/UserDashboardPage/UserDashboardPage";
+import BookingPage from "./Pages/BookingPage/BookingPage";
+import SlotSelect from "./Pages/SlotSelect/SlotSelect";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 function App() {
@@ -44,15 +47,17 @@ function App() {
 
 
 
+
+            <Route path="/userdashboard/:id" element={<UserDashboard />} />
+            <Route path="/Slotselection" element={<SlotSelect />} />
+            <Route path="/booking" element={<BookingPage />} />
             {/* <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} /> */}
-            <Route path="/userdashboard/:id" element={<UserDashboard />} />
-            {/* <Route path="/about" element={<AboutUsPage />} />
-            <Route path="/Slotselection" element={<SlotSelect />} />
-            <Route path="/booking" element={<BookingPage />} /> */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+                  
 
-            {/* <Route path="/mybooking" element={<MyBookingsPage />} />
+            <Route path="/mybooking" element={<MyBookingsPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/vehicledetails" element={<VehicleDetails />} />
             <Route path="/emailverify" element={<VerEmail />} />
