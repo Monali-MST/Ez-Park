@@ -15,7 +15,7 @@ import DiscountSettings from "./Components/DiscountAdminSide/DiscountSettings";
 import UserDashboard from "./Pages/UserDashboardPage/UserDashboardPage";
 import BookingPage from "./Pages/BookingPage/BookingPage";
 import SlotSelect from "./Pages/SlotSelect/SlotSelect";
-
+import HomePage from "./Pages/HomePage/HomePage";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -27,7 +27,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePageM />} />
+            <Route path="/homepagem" element={<HomePageM />} />
             <Route path="/pointsystem" element={<PointSystem />} />
             <Route path="/checkoutpay" element={<CheckoutPayButton />} />
             <Route path="/successpay" element={<SuccessPay />} />
@@ -47,11 +47,11 @@ function App() {
 
 
 
-
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
             <Route path="/Slotselection" element={<SlotSelect />} />
             <Route path="/booking" element={<BookingPage />} />
-            {/* <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
+            {/* 
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/about" element={<AboutUsPage />} />

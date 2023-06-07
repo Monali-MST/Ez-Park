@@ -1,12 +1,12 @@
 import React from "react";
 import Logo from "../../../Assets/logo_without_text.png";
 import pointImg from "../../../Assets/point_picture.png";
-import "../NavBar/NavBar.css";
+import "../NavBarPoint/NavBarPoint.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-const NavBar = () => {
+const NavBarPoint = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -86,4 +86,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarPoint;
