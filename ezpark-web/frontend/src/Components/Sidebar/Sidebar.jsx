@@ -2,7 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 import { Navbar } from 'react-bootstrap';
 
-const NavBar = () => {
+const Sidebar = () => {
   return (
     <section>
       <nav class="navbar">
@@ -59,4 +59,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Sidebar;
