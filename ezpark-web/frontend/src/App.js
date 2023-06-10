@@ -16,6 +16,8 @@ import UserDashboard from "./Pages/UserDashboardPage/UserDashboardPage";
 import BookingPage from "./Pages/BookingPage/BookingPage";
 import SlotSelect from "./Pages/SlotSelect/SlotSelect";
 import HomePage from "./Pages/HomePage/HomePage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import SignUpPage from "./Pages/SignUpPage/Form";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -47,13 +49,14 @@ function App() {
 
 
 
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
             <Route path="/Slotselection" element={<SlotSelect />} />
             <Route path="/booking" element={<BookingPage />} />
-            <Route path="/" element={<HomePage />} />
             {/* 
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
+
             <Route path="/about" element={<AboutUsPage />} />
                   
 

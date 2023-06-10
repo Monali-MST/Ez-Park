@@ -5,7 +5,7 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <section>
-      <nav class="navbar">
+      <nav className="navbar">
         <div className="navbar-container">
 
           <div className="item-list">

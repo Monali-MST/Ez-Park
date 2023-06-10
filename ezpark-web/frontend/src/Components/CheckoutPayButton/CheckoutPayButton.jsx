@@ -48,18 +48,18 @@ const CheckoutPayButton = () => {
   return (
     <div>
       <Button
-        variant="primary"
+        variant="warning"
         type="submit"
         style={{
           marginTop: "15px",
           width: "175px",
-          backgroundColor: "#FAA41E",
           marginLeft: "100px",
         }}
         onClick={handlecheckbutton}
       >
         Pay Now
       </Button>
+      {/* backgroundColor: "#FAA41E", */}
     </div>
   );
 };

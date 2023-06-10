@@ -3,39 +3,39 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-3 col-lg-4 col-md-6">
             <div>
               <h3>Logo</h3>
-              <p class="mb-30 footer-desc">
+              <p className="mb-30 footer-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
                 soluta facilis eos quia optio iusto odit atque eum tempore,
                 quisquam officiis vero veniam hic,
               </p>
             </div>
           </div>
-          <div class="col-xl-2 offset-xl-1 col-lg-2 col-md-6">
-            <div class="">
+          <div className="col-xl-2 offset-xl-1 col-lg-2 col-md-6">
+            <div className="">
               <h4>Quick Link</h4>
-              <ul class="list-unstyled">
+              <ul className="list-unstyled">
                 <li>
-                  <a href="#" class="text-decoration-none">
+                  <a href="#" className="text-decoration-none">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/signup" class="text-decoration-none">
+                  <a href="/signup" className="text-decoration-none">
                     Register
                   </a>
                 </li>
                 <li>
-                  <a href="/login" class="text-decoration-none">
+                  <a href="/login" className="text-decoration-none">
                     Login
                   </a>
                 </li>
                 <li>
-                  <a href="/supoort" class="text-decoration-none">
+                  <a href="/supoort" className="text-decoration-none">
                     Support
                   </a>
                 </li>
@@ -43,10 +43,10 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-3 col-md-6">
+          <div className="col-xl-3 col-lg-3 col-md-6">
             <div>
               <h4>Contact Us</h4>
-              <ul class="list-unstyled">
+              <ul className="list-unstyled">
                 <li>
                   <p>Katubedda,Moratuwa</p>
                 </li>
@@ -59,22 +59,22 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-6">
+          <div className="col-xl-3 col-lg-3 col-md-6">
             <div>
               <h4>Follow Us on</h4>
               <div>
-          <ul class="d-flex gap-3 list-unstyled">
-            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+          <ul className="d-flex gap-3 list-unstyled">
+            <li><a href="#"><i className="bi bi-facebook"></i></a></li>
+            <li><a href="#"><i className="bi bi-twitter"></i></a></li>
+            <li><a href="#"><i className="bi bi-instagram"></i></a></li>
           </ul>
         </div>
             </div>
           </div>
         </div>
 
-        <div class="d-flex justify-content-center">
-          <div class="copyright">
+        <div className="d-flex justify-content-center">
+          <div className="copyright">
             <p>
               Developed and maintained by{" "}
               
