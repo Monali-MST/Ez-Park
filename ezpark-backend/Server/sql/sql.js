@@ -15,7 +15,7 @@ const queries = {
   update_no_of_points_in_user:
     "UPDATE User_Details SET `UserPoints`='?' WHERE UserID = '?';",
   update_discount_data:
-    "UPDATE `ezpark`.`discounts_details` SET `Discounts_Name` = ?, `Discount` = '?', `ExpDate` = ? WHERE (`BadgeId` = ? );",
+    "UPDATE `ezpark`.`discounts_details` SET `Discounts_Name` = ?, `Discount` = ?, `ExpDate` = ? WHERE (`BadgeId` = ? );",
 
 
 
