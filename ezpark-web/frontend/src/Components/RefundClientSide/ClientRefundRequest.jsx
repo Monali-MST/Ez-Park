@@ -14,11 +14,7 @@ const ClientRefundRequest = () => {
 
   const today = new Date();
   const date =
-    today.getFullYear() +
-    "." +
-    (today.getMonth() + 1) +
-    "." +
-    today.getDate();
+    today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
 
   const [request, setrequest] = useState({
     Booking_id: "",
@@ -39,15 +35,12 @@ const ClientRefundRequest = () => {
     }
 
     try {
-      axios.post(
-        "http://localhost:8800/api/user/send_refund_request",
-        request
-      )
-      .then((res)=>{
-        console.log(res);
-        navigate("/");
-      })
-      
+      axios
+        .post("http://localhost:8800/api/user/send_refund_request", request)
+        .then((res) => {
+          console.log(res);
+          navigate("/");
+        });
     } catch (err) {
       console.log(err);
     }
@@ -56,7 +49,7 @@ const ClientRefundRequest = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Request Refund
+        Cancel Booking
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -64,6 +57,22 @@ const ClientRefundRequest = () => {
           <Modal.Title>Refunds Request</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontStyle: "italic",
+              fontFamily: "Arial, sans-serif",
+              fontSize: "20px",
+            }}
+          >
+            Sorry..!
+            <br />
+            you are not in the required time duration to get a refund. but you
+            can still request a refund.
+            <br />
+            <br />
+          </div>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Booking ID:</Form.Label>
@@ -100,10 +109,10 @@ const ClientRefundRequest = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClick}>
+          <Button variant="warning" onClick={handleClick}>
             Send Request
           </Button>
         </Modal.Footer>

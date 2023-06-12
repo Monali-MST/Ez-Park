@@ -7,13 +7,6 @@ import NavBarPoint from "../../Components/PointsystemDetails/NavBarPoint/NavBarP
 const HomePageM = () => {
   return (
     <div>
-      <NavBarPoint/>
-
-      <h5>Point_System Details (in nav bar, user profile)</h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/pointsystem">P_System</Link>
-      </Button>
-
       <h5>Payment (in booking page)</h5>
       <CheckoutPayButton />
 
@@ -27,16 +20,29 @@ const HomePageM = () => {
         <Link to="/clientrefundrequest">To Send Request page</Link>
       </Button>
 
+      <h5>Point_System Details (in nav bar, user profile)</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/pointsystem">P_System</Link>
+      </Button>
+
+      <h5>Discount Settings (in admin panal)</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/discountsettings"> Set Discounts</Link>
+      </Button>
+
       <hr></hr>
 
       <h5>(In testing level)</h5>
       <br></br>
-      <h5>points adding function (register, booking, review, rate, cancel booking, panalty)</h5>
+      <h5>
+        points adding function (register, booking, review, rate, cancel booking,
+        panalty)
+      </h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/pointsaddbutton"> points add</Link>
       </Button>
 
-      <h5>Refund (in admin panal, cancel booking)</h5>
+      <h5>Refund (cancel booking)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/refund"> To Refund page</Link>
       </Button>
@@ -44,11 +50,6 @@ const HomePageM = () => {
       <h5>Refund (in admin panal)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/refund"> To Refund page</Link>
-      </Button>
-
-      <h5>Discount Settings (in admin panal)</h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/discountsettings"> Set Discounts</Link>
       </Button>
     </div>
   );
