@@ -10,6 +10,7 @@ const get_Refund_Level = require('../api_operations_1/operations_1/refund/get_Re
 const get_refund_request = require('../api_operations_1/operations_1/refund_request/get_refund_request');
 const send_refund_request = require('../api_operations_1/operations_1/refund_request/send_refund_request');
 const reject_refund_request = require('../api_operations_1/operations_1/refund_request/reject_refund_request');
+const get_payment_details = require('../api_operations_1/operations_1/payment/get_payment_details');
 const save_payment_details = require('../api_operations_1/operations_1/payment/save_payment_details');
 const { updatePoints } = require('../api_operations_1/operations_1/use_p_system/updatePoints');
 const { assignBadges } = require('../api_operations_1/operations_1/use_p_system/assignBadges');
@@ -38,6 +39,7 @@ router.route('/reject_refund_request:id' ).delete(reject_refund_request);
 
 //payment
 router.route('/save_payment_details').post(save_payment_details);
+router.route('/get_payment_details').get(get_payment_details);
 
 //refund
 

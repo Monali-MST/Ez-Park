@@ -40,7 +40,8 @@ const queries = {
   //payment
   insert_payment_details:
     "INSERT INTO `EzPark`.`payment_details` (`PaymentDate`, `PaymentAmount`, `Booking_id`, `Payment_intent_id`) VALUES (?);",
-
+  get_payment_details:
+    "SELECT * FROM ezpark.payment_details;",
 
 
   //refund

@@ -25,7 +25,7 @@ const SuccessPay = () => {
     bookingId: data.book_id,
     slotName: data.slot_name,
     email: data.email,
-    payment_intent_id: 4,
+    payment_intent_id: "hsnteb4562guhs",
   };
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const SuccessPay = () => {
           .then((res) => {
             console.log(res.data);
             save_localStorage(localStorage_keys.payment_RandomId, randomId);
-            console.log("local stoerd");
+            console.log("locally stoerd");
           });
       } catch (err) {
         console.log(err);
