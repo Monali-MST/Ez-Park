@@ -4,12 +4,14 @@ const connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
 async function assignBadges(req, res) {
-  const { user_id } = req.body;
+  const { id } = req.body;
+
+  console.log(req.body);
 
   // Retrieve the number of points for the user from the database
   connection.query(
     queries.get_no_of_points_by_user_id,
-    [user_id],
+    [id],
     function (err, result) {
       if (err) throw err;
       const points = result[0].UserPoints;

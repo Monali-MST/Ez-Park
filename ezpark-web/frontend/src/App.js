@@ -20,6 +20,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignUpPage from "./Pages/SignUpPage/Form";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import UserBadge from "./Components/UserBadge/UserBadge";
 
 
 
@@ -37,7 +38,8 @@ function App() {
             <Route path="/pointsaddbutton" element={<PointsAddButtonTest />} />
             <Route path="/refund" element={<RefundButton />} />
             <Route path="/successrefund" element={<SuccessRefund />} />
-            <Route path="/discountsettings" element={<DiscountSettings/>}></Route>
+            <Route path="/discountsettings" element={<DiscountSettings/>}/>
+            <Route path="/showbadge" element={<UserBadge/>}/>
             <Route
               path="/adminrefundrequest"
               element={<AdminRefundRequestPage />}

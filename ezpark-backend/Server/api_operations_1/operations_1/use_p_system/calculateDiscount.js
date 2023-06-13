@@ -13,7 +13,7 @@ async function calculateDiscount(req, res) {
     function (err, data) {
       if (err) throw err;
       const discount_data = data[0];
-      const discount = { discount_name: null, discount_precentage: 0 };
+      const discount = { discount_name: null, discount_precentage: 0 }; 
 
       // Check if the discount has an expiration date
       if (discount_data.ExpDate != null) {

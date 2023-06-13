@@ -12,7 +12,7 @@ const HomePageM = () => {
 
       <h5>Refund Requests (in admin panal)</h5>
       <Button variant="outline-primary" size="sm">
-        <Link to="/adminrefundrequest">Refund Requests</Link>
+        <Link to="/adminrefundrequest">to Refund Requests page</Link>
       </Button>
 
       <h5>Refund Requests (in client side cancel booking)</h5>
@@ -22,13 +22,14 @@ const HomePageM = () => {
 
       <h5>Point_System Details (in nav bar, user profile)</h5>
       <Button variant="outline-primary" size="sm">
-        <Link to="/pointsystem">P_System</Link>
+        <Link to="/pointsystem">to point details</Link>
       </Button>
 
       <h5>Discount Settings (in admin panal)</h5>
       <Button variant="outline-primary" size="sm">
-        <Link to="/discountsettings"> Set Discounts</Link>
+        <Link to="/discountsettings"> to Set Discounts page</Link>
       </Button>
+
 
       <hr></hr>
 
@@ -47,11 +48,14 @@ const HomePageM = () => {
         <Link to="/refund"> To Refund page</Link>
       </Button>
 
-      <h5>Refund (in admin panal)</h5>
+      <h5>Show Badge of the logged user (in user profile)</h5>
       <Button variant="outline-primary" size="sm">
-        <Link to="/refund"> To Refund page</Link>
+        <Link to="/showbadge"> To user profile</Link>
       </Button>
+
     </div>
+
+    
   );
 };
 
