@@ -10,12 +10,12 @@ import { getUser } from "../../helper/getUser";
 const UserBadge = () => {
   const [userBadge, setuserBadge] = useState([]);
   const { id } = getUser();
-
+ 
   useEffect(() => {
     const fetchAllPoints = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:8800/api/user/getBadge",
+          "http://localhost:8800/api/user/assignBadge",
           { id }
         );
         console.log(res.data);

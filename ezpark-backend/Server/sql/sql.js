@@ -44,6 +44,11 @@ const queries = {
     "SELECT * FROM ezpark.payment_details;",
 
 
+
+  //temp booking
+  get_data_by_temp_booking_id: "SELECT * FROM ezpark.temp_booking WHERE BookingID='?';",
+  get_slot_price_by_slot_id: "SELECT slot_price FROM ezpark.slot WHERE slot_id = '?';",
+
   //refund
 
 };

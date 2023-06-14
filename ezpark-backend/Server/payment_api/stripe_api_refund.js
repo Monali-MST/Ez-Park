@@ -28,7 +28,7 @@ module.exports = async function stripe_api_refund(req, res) {
 
     // Initiate refund
     const refund = await stripe.refunds.create({
-      payment_intent: "pi_3MtWLiKdpK5vl1Ge0DwRqG0z", //should not be hard cord
+      payment_intent: "pi_3NIVg2KdpK5vl1Ge0MxqCb9G", //should not be hard cord
       amount: refundAmount,
       reason: "requested_by_customer", // specify the reason for the refund
     });

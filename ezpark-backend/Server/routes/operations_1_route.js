@@ -16,12 +16,13 @@ const { updatePoints } = require('../api_operations_1/operations_1/use_p_system/
 const { assignBadges } = require('../api_operations_1/operations_1/use_p_system/assignBadges');
 const { calculateDiscount } = require('../api_operations_1/operations_1/use_p_system/calculateDiscount');
 const { updateDiscount } = require('../api_operations_1/operations_1/use_p_system/updateDiscount');
+const { get_temp_booking_details } = require('../api_operations_1/operations_1/payment/get_temp_book_details');
 
 
 
  //point system functions
  router.route('/updateUserPoints').put(updatePoints); 
- router.route('/getBadge').post(assignBadges); 
+ router.route('/assignBadge').post(assignBadges); 
  router.route('/calculateDiscount').get(calculateDiscount); 
  router.route('/updateDiscount').put(updateDiscount); 
 
@@ -40,6 +41,9 @@ router.route('/reject_refund_request:id' ).delete(reject_refund_request);
 //payment
 router.route('/save_payment_details').post(save_payment_details);
 router.route('/get_payment_details').get(get_payment_details);
+
+//temp booking
+router.route('/get_temp_book_details').post(get_temp_booking_details)
 
 //refund
 

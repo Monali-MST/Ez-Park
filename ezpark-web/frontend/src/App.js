@@ -21,6 +21,7 @@ import SignUpPage from "./Pages/SignUpPage/Form";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserBadge from "./Components/UserBadge/UserBadge";
+import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
 
 
 
@@ -30,7 +31,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/homepagem" element={<HomePageM />} />
+            <Route path="/" element={<HomePageM />} />
             <Route path="/pointsystem" element={<PointSystem />} />
             <Route path="/checkoutpay" element={<CheckoutPayButton />} />
             <Route path="/successpay" element={<SuccessPay />} />
@@ -40,6 +41,7 @@ function App() {
             <Route path="/successrefund" element={<SuccessRefund />} />
             <Route path="/discountsettings" element={<DiscountSettings/>}/>
             <Route path="/showbadge" element={<UserBadge/>}/>
+            <Route path="/bookingpageb" element={<BookingPageb/>}/>
             <Route
               path="/adminrefundrequest"
               element={<AdminRefundRequestPage />}
@@ -51,7 +53,7 @@ function App() {
 
 
 
-            <Route path="/" element={<HomePage />} />
+            <Route path="/homepage" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
