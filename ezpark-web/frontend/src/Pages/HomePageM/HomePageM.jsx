@@ -6,6 +6,7 @@ const HomePageM = () => {
   return (
     <div>
       <h3>Client Side functions</h3>
+      <br></br>
 
       <h5>Point_System Details (in nav bar, user profile)</h5>
       <Button variant="outline-primary" size="sm">
