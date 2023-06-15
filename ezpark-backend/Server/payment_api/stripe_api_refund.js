@@ -7,18 +7,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+function calculate_refund_amount(amount, duration) {
+  if (duration >= 5) return amount;
+  else if (duration >= 3) return amount / 2;
+  else return 0;
+}
 
 module.exports = async function stripe_api_refund(req, res) {
-  let refundAmount = 0;
+  let amount = 1000;
   const cancellationDuration = 5;
 
-  if (cancellationDuration >= 5 && cancellationDuration <= 7) {
-    refundAmount = 1000; // Full refund
-  } else if (cancellationDuration >= 3 && cancellationDuration < 5) {
-    refundAmount = 1000 * 0.5; // 50% refund
-  }
-  // No refund for cancellation duration less than 3
-
+  const refundAmount = calculate_refund_amount(amount,cancellationDuration);
 
   try {
     // const paymentMethodId = req.body.paymentMethodId;
@@ -28,7 +27,7 @@ module.exports = async function stripe_api_refund(req, res) {
 
     // Initiate refund
     const refund = await stripe.refunds.create({
-      payment_intent: "pi_3NIVg2KdpK5vl1Ge0MxqCb9G", //should not be hard cord
+      payment_intent: "pi_3MybLOKdpK5vl1Ge0aWlqWdO", //should not be hard cord
       amount: refundAmount,
       reason: "requested_by_customer", // specify the reason for the refund
     });

@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import CheckoutPayButton from "../../Components/CheckoutPayButton/CheckoutPayButton";
-import NavBarPoint from "../../Components/PointsystemDetails/NavBarPoint/NavBarPoint";
 
 const HomePageM = () => {
   return (
@@ -54,8 +52,13 @@ const HomePageM = () => {
 
       <h5>Refund Requests (in admin panal)</h5>
       <Button variant="outline-primary" size="sm">
-        <Link to="/adminrefundrequest">to Refund Requests page</Link>
+        <Link to="/adminrefundrequest">Refund Requests</Link>
       </Button>
+
+      {/* <h5>Refund Requests (in admin panal)</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/adminrefundrequest">to Refund Requests page</Link>
+      </Button> */}
     </div>
   );
 };
