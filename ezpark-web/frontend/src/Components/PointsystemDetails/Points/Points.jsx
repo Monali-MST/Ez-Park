@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./Points.css";
 import pointImg from "../../../Assets/point_picture.png";
+import baseUrl from "../../../Apis/baseUrl";
 
 const Points = () => {
   const [pointActions, setpointActions] = useState([]);
   useEffect(() => {
     const fetchAllPoints = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/user/getpointActions");
+        const res = await baseUrl.get("/user/getpointActions");
         setpointActions(res.data);
       } catch (err) {
         console.log(err);

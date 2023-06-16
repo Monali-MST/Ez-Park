@@ -22,6 +22,8 @@ import SignUpPage from "./Pages/SignUpPage/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserBadge from "./Components/UserBadge/UserBadge";
 import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
+import CancelBookingButton from "./Components/RefundClientSide/CancelBookingButton";
+import Refund from "./Components/RefundClientSide/Refund";
 
 
 
@@ -42,6 +44,8 @@ function App() {
             <Route path="/discountsettings" element={<DiscountSettings/>}/>
             <Route path="/showbadge" element={<UserBadge/>}/>
             <Route path="/bookingpageb" element={<BookingPageb/>}/>
+            <Route path="/cancelbooking" element={<CancelBookingButton/>}/>
+            <Route path="/refundpage" element={<Refund/>}/>
             <Route
               path="/adminrefundrequest"
               element={<AdminRefundRequestPage />}

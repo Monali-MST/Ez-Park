@@ -42,6 +42,8 @@ const queries = {
     "INSERT INTO `EzPark`.`payment_details` (`PaymentDate`, `PaymentAmount`, `Booking_id`, `Payment_intent_id`) VALUES (?);",
   get_payment_details:
     "SELECT * FROM ezpark.payment_details;",
+  get_paid_amount_by_bookID:
+    "SELECT * FROM ezpark.payment_details WHERE Booking_id =?;",
 
 
 
@@ -50,6 +52,8 @@ const queries = {
   get_slot_price_by_slot_id: "SELECT slot_price FROM ezpark.slot WHERE slot_id = '?';",
 
   //refund
+  get_booking_by_bookID:
+  "SELECT * FROM ezpark.booking WHERE BookingID= ?;",
 
 };
 

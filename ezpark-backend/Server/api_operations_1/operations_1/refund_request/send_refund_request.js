@@ -12,7 +12,7 @@ module.exports = async function send_refund_request(req, res) {
     req.body.Booking_id,
   ];
   connection.query(queries.insert_refund_requests, [values], (err, data) => {
-    if (err) return res.json(err);
+    if (err) return res.status(500).send(err);
     return res.json("book has been added successfully");
   });
 };

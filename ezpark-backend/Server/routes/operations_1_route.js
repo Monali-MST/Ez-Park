@@ -17,6 +17,8 @@ const { assignBadges } = require('../api_operations_1/operations_1/use_p_system/
 const { calculateDiscount } = require('../api_operations_1/operations_1/use_p_system/calculateDiscount');
 const { updateDiscount } = require('../api_operations_1/operations_1/use_p_system/updateDiscount');
 const { get_temp_booking_details } = require('../api_operations_1/operations_1/payment/get_temp_book_details');
+const { durationCalculation } = require('../api_operations_1/operations_1/refund/refund_calculation');
+const get_paid_amount = require('../api_operations_1/operations_1/payment/get_paid_amount');
 
 
 
@@ -41,11 +43,12 @@ router.route('/reject_refund_request:id' ).delete(reject_refund_request);
 //payment
 router.route('/save_payment_details').post(save_payment_details);
 router.route('/get_payment_details').get(get_payment_details);
+router.route('/get_paid_amount').post(get_paid_amount);
 
 //temp booking
-router.route('/get_temp_book_details').post(get_temp_booking_details)
+router.route('/get_temp_book_details').post(get_temp_booking_details);
 
 //refund
-
+router.route('/refundcalculation').post(durationCalculation);
 
 module.exports = router
