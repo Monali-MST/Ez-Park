@@ -51,7 +51,7 @@ router.route('/get_temp_book_details').post(get_temp_booking_details);
 
 //bookingcancelation
 router.route('/save_cancel_booking').post(cancel_booking);
-router.route('/cancel_and_refund').post(send_refund_request, cancel_booking);
+router.route('/cancel_and_refund_req').post(send_refund_request, cancel_booking);
 
 
 

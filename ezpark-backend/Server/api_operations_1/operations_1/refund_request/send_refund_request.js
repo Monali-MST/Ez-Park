@@ -4,11 +4,13 @@ var connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
 module.exports = async function send_refund_request(req, res, next) {
-   console.log(req.body);
+  const today = new Date();
+  const date =
+    today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
 
   const values = [
     req.body.Reason,
-    req.body.Date,
+    date,
     req.body.Booking_id,
   ];
   connection.query(queries.insert_refund_requests, [values], (err, data) => {

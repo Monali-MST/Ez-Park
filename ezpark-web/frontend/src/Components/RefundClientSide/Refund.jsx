@@ -45,13 +45,31 @@ const Refund = () => {
     return durationInDays;
   }
 
+  
+  const ShowModel = () => {
+    if (action === 1) {
+      return <div></div>;
+    } else if (action === 2) {
+      return <div></div>;
+    } else if (action === 3) {
+      return (
+        <ClientRefundRequest
+          bookingid={bookingData.BookingID}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
   useEffect(() => {
     async function getamount() {
       try {
         baseUrl
-          .post("/user/get_paid_amount", { booking_id: bookingData.BookingID })
+          .post("/user/get_paid_amount", { Booking_id: bookingData.BookingID })
           .then((res) => {
-            console.log(res.data);
             setPayamount(res.data.PaymentAmount);
           });
       } catch (err) {
@@ -62,24 +80,13 @@ const Refund = () => {
     setDuration(getDuration());
   }, []);
 
-  const ShowModel = () => {
-    if (action === 1) {
-      return <div></div>;
-    } else if (action === 2) {
-      return <div></div>;
-    } else if (action === 3) {
-      return (
-        <ClientRefundRequest
-          bookingid = {bookingData.BookingID}
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      );
-    } else {
-      return <div></div>;
+  function handleCancelBook() {
+    try {
+      baseUrl.post("/user/save_cancel_booking", {Booking_id: bookingData.BookingID});
+    } catch (err) {
+      alert("Something went wrong.");
     }
-  };
-
+  }
   return (
     <div className="container p-5" style={{ maxWidth: "800px" }}>
       <h1 style={{ fontFamily: "Arial, sans-serif" }}>Cancel Booking</h1>
@@ -151,30 +158,6 @@ const Refund = () => {
         </tbody>
       </table>
       <div className="action-btns">
-        {/* <div className="">
-          <Button
-            variant="warning"
-            onClick={() => {
-              duration >= 3 ? setAction(2) : setAction(1);
-            }}
-          >
-            Cancel Booking {duration >= 3 && "and Refund "}
-          </Button>
-        </div>
-//cb1,c r2,crr3
-        <div>
-          {duration < 3 && (
-            <Button
-              variant="warning"
-              onClick={() => {
-                setAction(3);
-              }}
-            >
-              Request Refund
-            </Button>
-          )}
-        </div> */}
-
         {duration >= 3 ? (
           <Button
             variant="warning"
@@ -190,6 +173,7 @@ const Refund = () => {
               variant="warning"
               onClick={() => {
                 setAction(2);
+                handleCancelBook();
               }}
             >
               Cancel Booking
@@ -206,7 +190,6 @@ const Refund = () => {
           </div>
         )}
       </div>
-
       <ShowModel />
     </div>
   );

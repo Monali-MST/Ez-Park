@@ -36,7 +36,7 @@ const ClientRefundRequest = (props) => {
 
     try {
       const { status } = await baseUrl.post(
-        "/user/cancel_and_refund",
+        "/user/cancel_and_refund_req",
         request
       );
       console.log(status);
