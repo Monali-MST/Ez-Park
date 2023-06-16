@@ -19,7 +19,7 @@ const ClientRefundRequest = (props) => {
   const [request, setrequest] = useState({
     Booking_id: props.bookingid,
     Reason: "",
-    Requested_date: date,
+    Date: date,
   });
 
   const handleChange = (e) => {
@@ -36,7 +36,7 @@ const ClientRefundRequest = (props) => {
 
     try {
       const { status } = await baseUrl.post(
-        "/user/send_refund_request",
+        "/user/cancel_and_refund",
         request
       );
       console.log(status);
@@ -97,7 +97,7 @@ const ClientRefundRequest = (props) => {
             Close
           </Button>
           <Button variant="warning" onClick={handleClick}>
-            Send Request
+            Cancel & Send Request
           </Button>
         </Modal.Footer>
       </Modal>

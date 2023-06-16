@@ -3,16 +3,16 @@
 var connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
-module.exports = async function send_refund_request(req, res) {
-  // console.log(body);
+module.exports = async function send_refund_request(req, res, next) {
+   console.log(req.body);
 
   const values = [
     req.body.Reason,
-    req.body.Requested_date,
+    req.body.Date,
     req.body.Booking_id,
   ];
   connection.query(queries.insert_refund_requests, [values], (err, data) => {
     if (err) return res.status(500).send(err);
-    return res.json("book has been added successfully");
+    return next();//res.json("book has been added successfully");
   });
 };

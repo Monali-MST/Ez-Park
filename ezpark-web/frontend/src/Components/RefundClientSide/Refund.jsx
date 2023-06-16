@@ -64,9 +64,9 @@ const Refund = () => {
 
   const ShowModel = () => {
     if (action === 1) {
-      return <div>{action}</div>;
+      return <div></div>;
     } else if (action === 2) {
-      return <div>{action}</div>;
+      return <div></div>;
     } else if (action === 3) {
       return (
         <ClientRefundRequest
@@ -76,7 +76,7 @@ const Refund = () => {
         />
       );
     } else {
-      return <div>{action}</div>;
+      return <div></div>;
     }
   };
 
@@ -201,7 +201,7 @@ const Refund = () => {
                 setAction(3);
               }}
             >
-              Refund Request
+              Cancel & Refund Request
             </Button>
           </div>
         )}

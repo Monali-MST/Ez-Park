@@ -19,6 +19,7 @@ const { updateDiscount } = require('../api_operations_1/operations_1/use_p_syste
 const { get_temp_booking_details } = require('../api_operations_1/operations_1/payment/get_temp_book_details');
 const { durationCalculation } = require('../api_operations_1/operations_1/refund/refund_calculation');
 const get_paid_amount = require('../api_operations_1/operations_1/payment/get_paid_amount');
+const cancel_booking = require('../api_operations_1/operations_1/cancel_booking/cancel_booking');
 
 
 
@@ -47,6 +48,12 @@ router.route('/get_paid_amount').post(get_paid_amount);
 
 //temp booking
 router.route('/get_temp_book_details').post(get_temp_booking_details);
+
+//bookingcancelation
+router.route('/save_cancel_booking').post(cancel_booking);
+router.route('/cancel_and_refund').post(send_refund_request, cancel_booking);
+
+
 
 //refund
 router.route('/refundcalculation').post(durationCalculation);
