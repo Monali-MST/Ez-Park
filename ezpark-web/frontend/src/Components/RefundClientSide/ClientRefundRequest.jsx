@@ -40,6 +40,7 @@ const ClientRefundRequest = (props) => {
         request
       );
       console.log(status);
+      window.history.back();
     } catch (err) {
       props.onHide();
       alert("Something went wrong.");

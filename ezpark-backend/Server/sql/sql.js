@@ -19,7 +19,8 @@ const queries = {
   get_discount_details: "SELECT * FROM Discounts_Details;",
   get_point_details: "SELECT * FROM Point_Details;",
   get_refund_level_details: "SELECT * FROM Refund_Level;",
-
+  get_badge_details_by_userid: "SELECT Badge_ID, Badge_Name, Minimum_Points FROM user_details JOIN badge_details ON user_details.Badge = badge_details.Badge_ID WHERE UserID = 124;",
+  
   //refund request
   get_refund_requests:
     "SELECT Refund_Request.Refund_Request_id, Refund_Request.Reason, Refund_Request.Requested_date, Refund_Request.Requested_date, Refund_Request.Booking_id, Payment_Details.PaymentAmount FROM Payment_Details JOIN Booking ON Payment_Details.Booking_id = Booking.BookingID JOIN Refund_Request ON Booking.BookingID = Refund_Request.Booking_id;",

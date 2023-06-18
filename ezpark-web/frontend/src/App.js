@@ -1,7 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CheckoutPayButton from "./Components/CheckoutPayButton/CheckoutPayButton";
-import SuccessPay from "./Components/CheckoutPayButton/SuccessPay";
-import ClosePay from "./Components/CheckoutPayButton/ClosePay";
 import HomePageM from "./Pages/HomePageM/HomePageM";
 import PointSystem from "./Pages/PointSystem/PointSystem";
 import PointsAddButtonTest from "./Components/PointsAddButtonTest/PointsAddButtonTest";
@@ -10,7 +7,13 @@ import SuccessRefund from "./Components/RefundClientSide/SuccessRefund";
 import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRequestPage";
 import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
 import DiscountSettings from "./Components/DiscountAdminSide/DiscountSettings";
-
+import UserBadge from "./Components/UserBadge/UserBadge";
+import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
+import CancelBookingButton from "./Components/RefundClientSide/CancelBookingButton";
+import Refund from "./Components/RefundClientSide/Refund";
+import CheckoutPayButton from "./Components/Payment/CheckoutPayButton";
+import SuccessPay from "./Components/Payment/SuccessPay";
+import ClosePay from "./Components/Payment/ClosePay";
 
 import UserDashboard from "./Pages/UserDashboardPage/UserDashboardPage";
 import BookingPage from "./Pages/BookingPage/BookingPage";
@@ -20,12 +23,6 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignUpPage from "./Pages/SignUpPage/Form";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import UserBadge from "./Components/UserBadge/UserBadge";
-import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
-import CancelBookingButton from "./Components/RefundClientSide/CancelBookingButton";
-import Refund from "./Components/RefundClientSide/Refund";
-
-
 
 function App() {
   return (
@@ -41,11 +38,11 @@ function App() {
             <Route path="/pointsaddbutton" element={<PointsAddButtonTest />} />
             <Route path="/refund" element={<RefundButton />} />
             <Route path="/successrefund" element={<SuccessRefund />} />
-            <Route path="/discountsettings" element={<DiscountSettings/>}/>
-            <Route path="/showbadge" element={<UserBadge/>}/>
-            <Route path="/bookingpageb" element={<BookingPageb/>}/>
-            <Route path="/cancelbooking" element={<CancelBookingButton/>}/>
-            <Route path="/refundpage" element={<Refund/>}/>
+            <Route path="/discountsettings" element={<DiscountSettings />} />
+            <Route path="/showbadge" element={<UserBadge />} />
+            <Route path="/bookingpageb" element={<BookingPageb />} />
+            <Route path="/cancelbooking" element={<CancelBookingButton />} />
+            <Route path="/refundpage" element={<Refund />} />
             <Route
               path="/adminrefundrequest"
               element={<AdminRefundRequestPage />}
@@ -54,8 +51,6 @@ function App() {
               path="/clientrefundrequest"
               element={<ClientRefundRequestPage />}
             />
-
-
 
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />

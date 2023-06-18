@@ -4,8 +4,12 @@ import baseUrl from "../../Apis/baseUrl";
 import Button from "react-bootstrap/Button";
 import "../../styles/refund.css";
 import ClientRefundRequest from "./ClientRefundRequest";
+import SharedToast from "../../helper/SharedToast";
+
 
 const Refund = () => {
+  const [showToast, setShowToast] = useState(false);
+
   const location = useLocation();
   const bookingData = location.state;
   const [payamount, setPayamount] = useState(0);
@@ -80,9 +84,14 @@ const Refund = () => {
     setDuration(getDuration());
   }, []);
 
-  function handleCancelBook() {
+  async function handleCancelBook() {
     try {
-      baseUrl.post("/user/save_cancel_booking", {Booking_id: bookingData.BookingID});
+      const {status} = await baseUrl.post("/user/save_cancel_booking", {Booking_id: bookingData.BookingID});
+      if(status === 201){
+        console.log("Booking canceled successfully");
+      }
+      setShowToast(!showToast)
+      //window.history.back();
     } catch (err) {
       alert("Something went wrong.");
     }
@@ -191,6 +200,12 @@ const Refund = () => {
         )}
       </div>
       <ShowModel />
+      {showToast?<SharedToast
+      title = "Cancel Booking"
+      description = "Booking has canceled successfully!"
+      show = {showToast}
+      onHide = {()=>{setShowToast(false)}}
+      />:<div></div>}
     </div>
   );
 };

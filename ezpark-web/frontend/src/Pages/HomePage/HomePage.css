@@ -49,13 +49,13 @@
   }
   
   .column {
-    width: 50%; /* Adjust the width of each column */
+    width: 50%; 
   }
   
   .video-wrapper {
     padding-top: 200px;
     position: relative;
-    padding-bottom: 56.25%; /* Aspect ratio for 16:9 video */
+    padding-bottom: 56.25%; 
     overflow: hidden;
   }
   

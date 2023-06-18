@@ -3,7 +3,6 @@ const queries = require("../../../sql/sql");
 
 module.exports = async function get_paid_amount(req, res) {
   const { Booking_id } = req.body;
-  console.log(Booking_id);
 
   connection.query(
     queries.get_paid_amount_by_bookID,

@@ -1,7 +1,7 @@
 var connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
-module.exports = async function cancel_booking(req, res, next) {
+module.exports = async function save_cancel_booking(req, res) {
   const today = new Date();
   const date =
     today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
