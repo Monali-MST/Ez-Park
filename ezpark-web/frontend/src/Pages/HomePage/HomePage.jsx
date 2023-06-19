@@ -13,7 +13,7 @@ import Logo from "../../Assets/logo_without_text.png";
 // import Feedback from "../../Pages/Review_Rating/Feedback";
 import Card from "react-bootstrap/Card";
 // import YouTube from 'react-youtube';
-import "./HomePage.css";
+import "../../styles/HomePage.css";
 
 const HomePage = () => {
   const videoId = "CK7KYruoGZY"; // Replace with your YouTube video ID
