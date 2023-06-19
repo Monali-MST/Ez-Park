@@ -6,7 +6,7 @@ import {
   localStorage_keys,
 } from "../../helper/handle_localStorage";
 
-const CheckoutPayButton = ({ amount}) => {
+const CheckoutPayButton = ({ amount }) => {
   const name = "Slot Name: Zone C -20";
 
   const handlecheckbutton = async () => {

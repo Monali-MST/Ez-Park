@@ -28,9 +28,11 @@ const {
 } = require("../api_operations_1/operations_1/payment/get_temp_book_details");
 const {
   durationCalculation,
-} = require("../api_operations_1/operations_1/refund/refund_calculation");
+} = require("../api_operations_1/operations_1/refund/durationCalculation");
 const get_paid_amount = require("../api_operations_1/operations_1/payment/get_paid_amount");
 const save_cancel_booking = require("../api_operations_1/operations_1/cancel_booking/save_cancel_booking");
+const save_refund_details = require("../api_operations_1/operations_1/refund/save_refund_details");
+const stripe_api_refund = require("../payment_api/stripe_api_refund");
 
 //point system functions
 router.route("/updateUserPoints").put(updatePoints);
@@ -62,8 +64,10 @@ router.route("/save_cancel_booking").post(save_cancel_booking);
 router
   .route("/cancel_and_refund_req")
   .post(send_refund_request, save_cancel_booking);
+router.route("/cancel_and_refund").post(stripe_api_refund, save_cancel_booking);
 
 //refund
 router.route("/refundcalculation").post(durationCalculation);
+router.route("/save_refund_details").post(save_refund_details);
 
 module.exports = router;

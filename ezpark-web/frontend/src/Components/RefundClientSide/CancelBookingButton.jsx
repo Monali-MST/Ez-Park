@@ -11,8 +11,8 @@ const CancelBookingButton = () => {
   const navigate = useNavigate();
 
   const bookingData = {
-    BookingID:130,
-    BookedDate: "2023-06-17",
+    BookingID:1,
+    BookedDate: "2023-06-25",
     StartTime: '10:07:00',
     EndTime:'16:00:00',
     VehicleNo:'CBJ5566',

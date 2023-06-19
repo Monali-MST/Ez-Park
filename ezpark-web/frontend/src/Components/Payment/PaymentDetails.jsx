@@ -83,7 +83,7 @@ const PaymentDetails = ({ slotPrice, startTime, endTime }) => {
               <p>{formattedTime}</p>              
               <p style={{ fontFamily: "Georgia, serif", fontSize: "25px" }}>{discountData.discount_name}</p>
               <p>Payment Amount: $ {paymentAmount}</p>
-              <p>Discount Amount: Rs.{discountAmount}</p>
+              <p>Discount Amount: $ {discountAmount}</p>
               <div style={{padding: "5px 160px 0px 160px" }}><p className="special-amount" style={{ border: "2px solid orange", borderRadius: "50px", padding: "0px 0px 0px 0px" }}>$ {netAmount}</p></div>
             </div>
           </div>

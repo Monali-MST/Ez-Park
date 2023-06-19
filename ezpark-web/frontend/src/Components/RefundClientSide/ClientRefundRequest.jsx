@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import baseUrl from "../../Apis/baseUrl";
 
 const ClientRefundRequest = (props) => {
-  // const [show, setShow] = useState(false);
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
-  const navigate = useNavigate();
 
   const today = new Date();
   const date =

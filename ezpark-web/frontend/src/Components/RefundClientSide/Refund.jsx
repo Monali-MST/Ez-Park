@@ -6,7 +6,6 @@ import "../../styles/refund.css";
 import ClientRefundRequest from "./ClientRefundRequest";
 import SharedToast from "../../helper/SharedToast";
 
-
 const Refund = () => {
   const [showToast, setShowToast] = useState(false);
 
@@ -49,7 +48,6 @@ const Refund = () => {
     return durationInDays;
   }
 
-  
   const ShowModel = () => {
     if (action === 1) {
       return <div></div>;
@@ -86,12 +84,29 @@ const Refund = () => {
 
   async function handleCancelBook() {
     try {
-      const {status} = await baseUrl.post("/user/save_cancel_booking", {Booking_id: bookingData.BookingID});
-      if(status === 201){
+      const { status } = await baseUrl.post("/user/save_cancel_booking", {
+        Booking_id: bookingData.BookingID,
+      });
+      if (status === 201) {
         console.log("Booking canceled successfully");
       }
-      setShowToast(!showToast)
+      setShowToast(!showToast);
       //window.history.back();
+    } catch (err) {
+      alert("Something went wrong.");
+    }
+  }
+  async function handleCancelAndRefund() {
+    try {
+      const { status } = await baseUrl.post("/user/cancel_and_refund", {
+        Booking_id: bookingData.BookingID,
+        amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
+      });
+      if (status === 201) {
+        console.log("Refunded and Booking canceled successfully");
+      }
+      setShowToast(!showToast);
+      window.history.back();
     } catch (err) {
       alert("Something went wrong.");
     }
@@ -172,6 +187,7 @@ const Refund = () => {
             variant="warning"
             onClick={() => {
               setAction(1);
+              handleCancelAndRefund();
             }}
           >
             Cancel Booking and Refund
@@ -190,8 +206,8 @@ const Refund = () => {
             <Button
               variant="warning"
               onClick={() => {
-                setModalShow(true);
                 setAction(3);
+                setModalShow(true);
               }}
             >
               Cancel & Refund Request
@@ -200,12 +216,18 @@ const Refund = () => {
         )}
       </div>
       <ShowModel />
-      {showToast?<SharedToast
-      title = "Cancel Booking"
-      description = "Booking has canceled successfully!"
-      show = {showToast}
-      onHide = {()=>{setShowToast(false)}}
-      />:<div></div>}
+      {showToast ? (
+        <SharedToast
+          title="Cancel Booking"
+          description="Booking has canceled successfully!"
+          show={showToast}
+          onHide={() => {
+            setShowToast(false);
+          }}
+        />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
