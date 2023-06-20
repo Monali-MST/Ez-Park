@@ -67,7 +67,8 @@ router
 router.route("/cancel_and_refund").post(stripe_api_refund, save_cancel_booking);
 
 //refund
-router.route("/refundcalculation").post(durationCalculation);
+router.route("/refund_and_save_refund_details").post(stripe_api_refund,save_refund_details);
 router.route("/save_refund_details").post(save_refund_details);
+router.route("/refundcalculation").post(durationCalculation);
 
 module.exports = router;

@@ -2,10 +2,14 @@ var connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
 module.exports = async function save_refund_details(req, res) {  
+  const today = new Date();
+  const date =
+    today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
   const values = [ 
-    // req.body.date,
-    // req.body.amount,
-    // req.body.bookingId,
+    req.body.amount,
+    req.body.redundLevel,
+    date,
+    req.body.Booking_id,
   ];
   console.log(values)
   connection.query(queries.insert_refund_details, [values], (err, data) => {

@@ -26,15 +26,13 @@ module.exports = async function stripe_api_refund(req, res, next) {
   try {
     // Initiate refund
     const refund = await stripe.refunds.create({
-      payment_intent: "pi_3NKn6pKdpK5vl1Ge0yX79eeh", //should not be hard cord   //remember to use a id that has paid more than pamymentAmount that booking belong
+      payment_intent: "pi_3NLAOWKdpK5vl1Ge1nvO4Ynb", //should not be hard cord   //remember to use a id that has paid more than pamymentAmount that booking belong
       amount: refundAmount,
       reason: "requested_by_customer",
     });
 
     // Handle successful refund
     // res.status(200).json({ success: true, refundId: refund.id });
-
-    save_refund_details(req, res); //under development
 
     return next();
   } catch (error) {

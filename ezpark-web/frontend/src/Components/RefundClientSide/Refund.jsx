@@ -101,6 +101,7 @@ const Refund = () => {
       const { status } = await baseUrl.post("/user/cancel_and_refund", {
         Booking_id: bookingData.BookingID,
         amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
+        redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3
       });
       if (status === 201) {
         console.log("Refunded and Booking canceled successfully");
