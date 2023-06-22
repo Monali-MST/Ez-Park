@@ -3,7 +3,7 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../Components/Header/Header";
 import UserBoard from "./UserBoard";
 import { Col, Row } from "react-bootstrap";
-import "./UserDashboardPage.css";
+import "../../styles/UserDashboardPage.css";
 
 
 const UserDashboard = () => {

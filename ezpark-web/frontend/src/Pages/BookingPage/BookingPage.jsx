@@ -4,8 +4,8 @@ import Row from "react-bootstrap/Row";
 
 import myImage from "../../Assets/parking-booking.jpg";
 
-import "./BookingPage.css";
-import CheckoutPayButton from "../../Components/CheckoutPayButton/CheckoutPayButton";
+import "../../styles/BookingPage.css";
+import CheckoutPayButton from "../../Components/Payment/CheckoutPayButton";
 
 function BookingPage() {
   return (

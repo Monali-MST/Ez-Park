@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./Badges.css";
 import Bronze from "../../../Assets/bronze.png";
 import Gold from "../../../Assets/gold.png";
 import Silver from "../../../Assets/silver.png";
+import baseUrl from "../../../Apis/baseUrl";
 
 const Badges = () => {
   const [badges, setBadges] = useState([]);
   useEffect(() => {
     const fetchAllBadges = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/user/getbadges");
+        const res = await baseUrl.get("/user/getbadges");
         setBadges(res.data);
       } catch (err) {
         console.log(err);

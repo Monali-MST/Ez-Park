@@ -1,25 +1,18 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import baseUrl from "../../Apis/baseUrl";
 
-const ClientRefundRequest = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const navigate = useNavigate();
-
+const ClientRefundRequest = (props) => {
   const today = new Date();
   const date =
     today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
 
   const [request, setrequest] = useState({
-    Booking_id: "",
+    Booking_id: props.bookingid,
     Reason: "",
-    Requested_date: date,
+    Date: date,
   });
 
   const handleChange = (e) => {
@@ -35,24 +28,21 @@ const ClientRefundRequest = () => {
     }
 
     try {
-      axios
-        .post("http://localhost:8800/api/user/send_refund_request", request)
-        .then((res) => {
-          console.log(res);
-          navigate("/");
-        });
+      const { status } = await baseUrl.post(
+        "/user/cancel_and_refund_req",
+        request
+      );
+      console.log(status);
+      window.history.back();
     } catch (err) {
-      console.log(err);
+      props.onHide();
+      alert("Something went wrong.");
     }
   };
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Cancel Booking
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal {...props}>
         <Modal.Header closeButton>
           <Modal.Title>Refunds Request</Modal.Title>
         </Modal.Header>
@@ -66,7 +56,6 @@ const ClientRefundRequest = () => {
               fontSize: "20px",
             }}
           >
-            Sorry..!
             <br />
             you are not in the required time duration to get a refund. but you
             can still request a refund.
@@ -74,22 +63,15 @@ const ClientRefundRequest = () => {
             <br />
           </div>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Booking ID:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="1008"
-                onChange={handleChange}
-                name="Booking_id"
-                autoFocus
-                required
-              />
-            </Form.Group>
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Reason for the Booking Cancelation:</Form.Label>
+              <Form.Label>
+                Reason for the Booking Cancelation:
+                <span style={{ color: "red" }}>*</span>
+              </Form.Label>
+
               <Form.Control
                 as="textarea"
                 rows={4}
@@ -109,11 +91,11 @@ const ClientRefundRequest = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={props.onHide}>
             Close
           </Button>
           <Button variant="warning" onClick={handleClick}>
-            Send Request
+            Cancel & Send Request
           </Button>
         </Modal.Footer>
       </Modal>

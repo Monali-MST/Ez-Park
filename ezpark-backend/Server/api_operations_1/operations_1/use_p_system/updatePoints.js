@@ -21,6 +21,7 @@ async function updatePoints(req, res) {
         function (err, result) {
           if (err) throw err;
           const newPoints = result[0].NoOfPoints_PerHour + current_points;
+          
 
           // Update the points for the user in the database
           connection.query(

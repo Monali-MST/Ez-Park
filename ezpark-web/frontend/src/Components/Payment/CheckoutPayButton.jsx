@@ -6,8 +6,7 @@ import {
   localStorage_keys,
 } from "../../helper/handle_localStorage";
 
-const CheckoutPayButton = () => {
-  const amount = 1000;
+const CheckoutPayButton = ({ amount }) => {
   const name = "Slot Name: Zone C -20";
 
   const handlecheckbutton = async () => {
@@ -51,9 +50,9 @@ const CheckoutPayButton = () => {
         variant="warning"
         type="submit"
         style={{
-          marginTop: "15px",
+          marginTop: "25px",
           width: "175px",
-          marginLeft: "100px",
+          // marginLeft: "100px",
         }}
         onClick={handlecheckbutton}
       >
