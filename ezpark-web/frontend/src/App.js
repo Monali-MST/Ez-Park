@@ -2,10 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePageM from "./Pages/HomePageM/HomePageM";
 import PointSystem from "./Pages/PointSystem/PointSystem";
 import PointsAddButtonTest from "./Components/PointsAddButtonTest/PointsAddButtonTest";
-import RefundButton from "./Components/RefundClientSide/RefundButton";
-import SuccessRefund from "./Components/RefundClientSide/SuccessRefund";
-import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRequestPage";
-import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
 import DiscountSettings from "./Components/DiscountAdminSide/DiscountSettings";
 import UserBadge from "./Components/UserBadge/UserBadge";
 import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
@@ -23,6 +19,8 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignUpPage from "./Pages/SignUpPage/Form";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRequestPage";
+import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
 
 function App() {
   return (
@@ -36,8 +34,6 @@ function App() {
             <Route path="/successpay" element={<SuccessPay />} />
             <Route path="/closepay" element={<ClosePay />} />
             <Route path="/pointsaddbutton" element={<PointsAddButtonTest />} />
-            <Route path="/refund" element={<RefundButton />} />
-            <Route path="/successrefund" element={<SuccessRefund />} />
             <Route path="/discountsettings" element={<DiscountSettings />} />
             <Route path="/showbadge" element={<UserBadge />} />
             <Route path="/bookingpageb" element={<BookingPageb />} />
@@ -51,7 +47,7 @@ function App() {
               path="/clientrefundrequest"
               element={<ClientRefundRequestPage />}
             />
-
+            
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />

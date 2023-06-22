@@ -1,12 +1,8 @@
 const express = require("express");
-const stripe = require("stripe")(
-  "sk_test_51MdZNYKdpK5vl1Ge54rWkf669MHtdkiCz9isReAA1R0NUY2OT1vKNx5hEvkP5tIjLsF1pswgSv7hI646h4uHsyt500h4xGIM0Q"
-);
 var cors = require("cors");
-const save_refund_details = require("../api_operations_1/operations_1/refund/save_refund_details");
-
 const app = express();
-
+const dotenv = require("dotenv");
+dotenv.config();
 app.use(express.json());
 app.use(cors());
 
@@ -17,6 +13,7 @@ function calculate_refund_amount(amount, duration) {
 }
 
 module.exports = async function stripe_api_refund(req, res, next) {
+  const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
   let amount = req.body.amount;
   const cancellationDuration = 5;
 

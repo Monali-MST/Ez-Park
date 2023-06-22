@@ -23,19 +23,15 @@ const HomePageM = () => {
         <Link to="/bookingpageb"> To booking page</Link>
       </Button>
 
-      <h5>Refund(cancel booking button)</h5>
+      <h5>Refund, Refund Requests(with cancel booking button)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/cancelbooking">To cancel booking page</Link>
       </Button>
-      
+
+            
       <h5>Refund Requests (in client side cancel booking)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/clientrefundrequest">To Send Request page</Link>
-      </Button>
-
-      <h5>Refund (cancel booking)</h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/refund"> To Refund page</Link>
       </Button>
 
       <hr></hr>

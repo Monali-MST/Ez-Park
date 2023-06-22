@@ -51,11 +51,14 @@ const AdminRefundRequest = () => {
   };
   async function handleAcceptRefund() {
     try {
-      const { status } = await baseUrl.post("/user/refund_and_save_refund_details", {
-        Booking_id: bookingId,
-        amount: amount,
-        redundLevel: 2
-      });
+      const { status } = await baseUrl.post(
+        "/user/refund_and_save_refund_details",
+        {
+          Booking_id: bookingId,
+          amount: amount,
+          redundLevel: 2,
+        }
+      );
       if (status === 201) {
         console.log("Refunded successfully");
       }
@@ -140,33 +143,45 @@ const AdminRefundRequest = () => {
               Refund Request #{request.Refund_Request_id}
             </Accordion.Header>
             <Accordion.Body>
-              <b>Reason :</b>
-              <p>{request.Reason}</p>
-              <b>Booking ID :</b>
-              <p>{request.Booking_id}</p>
-              <b>Requested Date :</b>
-              <p>{new Date(request.Requested_date).toDateString()}</p>
-              <b>Paid Amount :</b>
-              <p>$ {request.PaymentAmount}</p>
-              <Button
-                variant="danger"
-                onClick={() => {
-                  handleShowR();
-                  setId(request.Refund_Request_id);
-                }}
-              >
-                Reject Reqest
-              </Button>{" "}
-              <Button
-                variant="warning"
-                onClick={() => {
-                  handleShowA();
-                  setBookingId(request.Booking_id);
-                  setAmount(request.PaymentAmount / 2);
-                }}
-              >
-                Accept Refund
-              </Button>
+              <p>
+                <b>Reason : </b>
+                {request.Reason}
+                
+              </p>
+              <p>
+                <b>Booking ID : </b>
+                {request.Booking_id}
+              </p>
+              <p>
+                <b>Requested Date : </b>
+                {new Date(request.Requested_date).toDateString()}
+              </p>
+              <p>
+                <b>Paid Amount : </b>${request.PaymentAmount}                               
+              </p>
+              <div style={{display:"flex", justifyContent:"right"}}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      handleShowR();
+                      setId(request.Refund_Request_id);
+                    }}
+                    style={{marginRight: "1rem"}}
+                  >
+                    Reject Reqest
+                  </Button>{" "}
+                  <Button
+                    variant="warning"
+                    onClick={() => {
+                      handleShowA();
+                      setBookingId(request.Booking_id);
+                      setAmount(request.PaymentAmount / 2);
+                    }}
+                    style={{marginRight: "2rem"}}
+                  >
+                    Accept Refund
+                  </Button>
+                </div> 
             </Accordion.Body>
           </Accordion.Item>
         ))}

@@ -5,7 +5,6 @@ import Modal from "react-bootstrap/Modal";
 import baseUrl from "../../Apis/baseUrl";
 
 const ClientRefundRequest = (props) => {
-
   const today = new Date();
   const date =
     today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
@@ -68,7 +67,11 @@ const ClientRefundRequest = (props) => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Reason for the Booking Cancelation:</Form.Label>
+              <Form.Label>
+                Reason for the Booking Cancelation:
+                <span style={{ color: "red" }}>*</span>
+              </Form.Label>
+
               <Form.Control
                 as="textarea"
                 rows={4}
