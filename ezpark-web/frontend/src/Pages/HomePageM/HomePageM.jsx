@@ -23,6 +23,11 @@ const HomePageM = () => {
         <Link to="/bookingpageb"> To booking page</Link>
       </Button>
 
+      <h5>Custom Payment to get payment intend id (in booking page)</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/custompayment"> To booking page</Link>
+      </Button>
+
       <h5>Refund, Refund Requests(with cancel booking button)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/cancelbooking">To cancel booking page</Link>

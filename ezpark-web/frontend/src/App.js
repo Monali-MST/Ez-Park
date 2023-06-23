@@ -21,6 +21,7 @@ import SignUpPage from "./Pages/SignUpPage/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRequestPage";
 import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
+import PaymentScreen from "./Components/PaymentCustom/PaymentScreen";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/bookingpageb" element={<BookingPageb />} />
             <Route path="/cancelbooking" element={<CancelBookingButton />} />
             <Route path="/refundpage" element={<Refund />} />
+            <Route path="/custompayment" element={<PaymentScreen />} />
             <Route
               path="/adminrefundrequest"
               element={<AdminRefundRequestPage />}
@@ -47,6 +49,7 @@ function App() {
               path="/clientrefundrequest"
               element={<ClientRefundRequestPage />}
             />
+
             
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
