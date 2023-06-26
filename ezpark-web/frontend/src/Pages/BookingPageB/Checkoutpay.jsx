@@ -7,7 +7,7 @@ const BookingPageb = () => {
     <div>
       <center>
         <PaymentDetails
-          slotPrice={10}
+          slotPrice={12}
           startTime={"18:30:00"}
           endTime={"20:00:00"}
         />

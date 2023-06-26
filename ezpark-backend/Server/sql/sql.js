@@ -19,11 +19,12 @@ const queries = {
   get_discount_details: "SELECT * FROM Discounts_Details;",
   get_point_details: "SELECT * FROM Point_Details;",
   get_refund_level_details: "SELECT * FROM Refund_Level;",
-  get_badge_details_by_userid: "SELECT Badge_ID, Badge_Name, Minimum_Points FROM user_details JOIN badge_details ON user_details.Badge = badge_details.Badge_ID WHERE UserID = 124;",
-  
+  get_badge_details_by_userid:
+    "SELECT Badge_ID, Badge_Name, Minimum_Points FROM user_details JOIN badge_details ON user_details.Badge = badge_details.Badge_ID WHERE UserID = 124;",
+
   //refund request
   get_refund_requests:
-    "SELECT Refund_Request.Refund_Request_id, Refund_Request.Reason, Refund_Request.Requested_date, Refund_Request.Requested_date, Refund_Request.Booking_id, Payment_Details.PaymentAmount FROM Payment_Details JOIN Booking ON Payment_Details.Booking_id = Booking.BookingID JOIN Refund_Request ON Booking.BookingID = Refund_Request.Booking_id;",
+    "SELECT Refund_Request.Refund_Request_id, Refund_Request.Reason, Refund_Request.Requested_date, Refund_Request.Requested_date, Refund_Request.Booking_id, Payment_Details.PaymentAmount ,Payment_Details.Payment_intent_id FROM Payment_Details JOIN Booking ON Payment_Details.Booking_id = Booking.BookingID JOIN Refund_Request ON Booking.BookingID = Refund_Request.Booking_id;",
   delete_refund_requests:
     "DELETE FROM `EzPark`.`Refund_Request` WHERE (`Refund_Request_id` = ?);",
   insert_refund_requests:
@@ -31,7 +32,7 @@ const queries = {
 
   //payment
   insert_payment_details:
-    "INSERT INTO `EzPark`.`payment_details` (`PaymentDate`, `PaymentAmount`, `Booking_id`, `Payment_intent_id`) VALUES (?);",
+    "INSERT INTO `EzPark`.`payment_details` (`PaymentDate`, `PaymentTime` , `PaymentAmount`, `Booking_id`, `Payment_intent_id`) VALUES (?);",
   get_payment_details: "SELECT * FROM ezpark.payment_details;",
   get_paid_amount_by_bookID:
     "SELECT * FROM ezpark.payment_details WHERE Booking_id =?;",
@@ -50,7 +51,6 @@ const queries = {
   get_booking_by_bookID: "SELECT * FROM ezpark.booking WHERE BookingID= ?;",
   insert_refund_details:
     "INSERT INTO `ezpark`.`refund_details` (`Refund_amount`, `Refund_level_id`, `RefundDate`, `Booking_id`) VALUES (?);",
-  
 };
 
 module.exports = queries;

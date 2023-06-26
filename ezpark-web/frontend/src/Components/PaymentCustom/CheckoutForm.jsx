@@ -5,15 +5,15 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import baseUrl from "../../Apis/baseUrl";
 
-export default function CheckoutForm() {
+export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail ] = useState("monalithennakoon2@gmail.com")
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     if (!stripe) {
       return;
@@ -27,7 +27,10 @@ export default function CheckoutForm() {
       return;
     }
 
+ 
+
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+      //alert(clientSecret);
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
@@ -60,7 +63,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: `http://localhost:3000/successpay?amount=${props.amount}&email=${email}`,
       },
     });
 
@@ -86,7 +89,9 @@ export default function CheckoutForm() {
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
-    //    onChange={(e) => setEmail(e.target.value)}
+        // onChange={(e) => setEmail(e.target.value)}
+        
+      //  onChange={((e)=>{setEmail(e.complete)})}
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">

@@ -6,7 +6,8 @@ module.exports = async function save_payment_details(req, res) {
   
   const values = [ 
     req.body.date,
-    req.body.amount/100,
+    req.body.time,
+    req.body.amount,
     req.body.bookingId,
     req.body.payment_intent_id
   ];

@@ -13,8 +13,9 @@ function calculate_refund_amount(amount, duration) {
 }
 
 module.exports = async function stripe_api_refund(req, res, next) {
+  const { paymentID, amount } = req.body;
+  console.log(req.body)
   const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
-  let amount = req.body.amount;
   const cancellationDuration = 5;
 
   const refundAmount = calculate_refund_amount(amount, cancellationDuration);
@@ -23,8 +24,8 @@ module.exports = async function stripe_api_refund(req, res, next) {
   try {
     // Initiate refund
     const refund = await stripe.refunds.create({
-      payment_intent: "pi_3NLAOWKdpK5vl1Ge1nvO4Ynb", //should not be hard cord   //remember to use a id that has paid more than pamymentAmount that booking belong
-      amount: refundAmount,
+      payment_intent: paymentID, //should not be hard cord   //remember to use a id that has paid more than pamymentAmount that booking belong
+      amount: refundAmount*100,
       reason: "requested_by_customer",
     });
 

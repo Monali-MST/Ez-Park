@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import baseUrl from "../../Apis/baseUrl";
 import { getUser } from "../../helper/getUser";
 import CheckoutPayButton from "./CheckoutPayButton";
+import PaymentScreen from "../PaymentCustom/PaymentScreen";
+import Button from "react-bootstrap/esm/Button";
+import { useNavigate } from "react-router-dom";
 
 const PaymentDetails = ({ slotPrice, startTime, endTime }) => {
   const [discountData, setDiscountData] = useState({
@@ -22,6 +25,7 @@ const PaymentDetails = ({ slotPrice, startTime, endTime }) => {
   const formattedTime = today.toLocaleTimeString('en-US', optionsTime);
   const startDate = new Date(startDateString);
   const endDate = new Date(endDateString);
+  const navigate = useNavigate();
 
   // Calculate the difference in milliseconds
   const duration = endDate - startDate;
@@ -53,6 +57,9 @@ const PaymentDetails = ({ slotPrice, startTime, endTime }) => {
 
   // Calculate net amount in cents
   const netAmountCents = paymentAmountCents - discountAmountCents;
+
+  const date =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
   useEffect(() => {
     async function getDiscount() {
@@ -89,7 +96,11 @@ const PaymentDetails = ({ slotPrice, startTime, endTime }) => {
           </div>
         </div>
       </div>
-      <CheckoutPayButton amount={netAmountCents}/>
+      {/* <CheckoutPayButton amount={netAmountCents}/> */}
+      <Button onClick={()=>{
+        
+navigate("/custompayment", {state:{netAmountCents, date}});
+      }}>Pay now</Button>
     </div>
   );
   

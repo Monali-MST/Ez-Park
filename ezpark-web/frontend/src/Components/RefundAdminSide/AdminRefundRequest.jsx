@@ -21,6 +21,7 @@ const AdminRefundRequest = () => {
   const [requests, setRequests] = useState([]);
   const [id, setId] = useState();
   const [bookingId, setBookingId] = useState();
+  const [ paymentId, setPaymentId ] = useState();
   const [amount, setAmount] = useState();
 
   useEffect(() => {
@@ -57,10 +58,21 @@ const AdminRefundRequest = () => {
           Booking_id: bookingId,
           amount: amount,
           redundLevel: 2,
+          paymentID:paymentId
         }
       );
       if (status === 201) {
         console.log("Refunded successfully");
+        await handleDelete(id);
+        try {
+          const res = await axios.get(
+            "http://localhost:8800/api/user/get_refund_request"
+          );
+          setRequests(res.data);
+        } catch (err) {
+          console.log(err);
+        }
+        
       }
       setShowToast(!showToast);
       //window.history.reload();
@@ -176,6 +188,9 @@ const AdminRefundRequest = () => {
                       handleShowA();
                       setBookingId(request.Booking_id);
                       setAmount(request.PaymentAmount / 2);
+                      setPaymentId(request.Payment_intent_id);
+                      setId(request.Refund_Request_id);
+
                     }}
                     style={{marginRight: "2rem"}}
                   >
@@ -191,7 +206,7 @@ const AdminRefundRequest = () => {
       {toastShow ? (
         <SharedToast
           title="Reject Refund Request"
-          description="Refunded successfully!"
+          description="Request Rejected successfully!"
           show={toastShow}
           onHide={() => {
             setToastShow(false);

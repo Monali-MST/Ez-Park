@@ -14,6 +14,7 @@ const Refund = () => {
   const [payamount, setPayamount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [action, setAction] = useState(0);
+  const [ paymentId, setPaymentId ] = useState();
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -73,6 +74,7 @@ const Refund = () => {
           .post("/user/get_paid_amount", { Booking_id: bookingData.BookingID })
           .then((res) => {
             setPayamount(res.data.PaymentAmount);
+            setPaymentId(res.data.Payment_intent_id)
           });
       } catch (err) {
         console.log(err);
@@ -101,13 +103,20 @@ const Refund = () => {
       const { status } = await baseUrl.post("/user/cancel_and_refund", {
         Booking_id: bookingData.BookingID,
         amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
-        redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3
+        redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3,
+        paymentID:paymentId
       });
       if (status === 201) {
         console.log("Refunded and Booking canceled successfully");
+        await baseUrl.post("/user/save_refund_details", {
+          Booking_id: bookingData.BookingID,
+          amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
+          redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3,
+          paymentID:payamount
+        });
       }
       setShowToast(!showToast);
-      window.history.back();
+    //  window.history.back();
     } catch (err) {
       alert("Something went wrong.");
     }
