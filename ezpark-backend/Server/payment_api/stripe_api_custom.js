@@ -18,6 +18,7 @@ module.exports = async function stripe_api_custom(req, res) {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: price,
     currency: "usd",
+   // payment_method_types: ['card'],
     automatic_payment_methods: {
       enabled: true,
     },

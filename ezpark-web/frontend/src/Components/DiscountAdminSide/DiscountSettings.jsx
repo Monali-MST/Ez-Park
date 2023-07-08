@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import discountMan from "../../Assets/discount-man.jpg";
+import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 
 const DiscountSettings = () => {
   const [discountDetails, setDiscountDetails] = useState({
@@ -67,7 +69,15 @@ const DiscountSettings = () => {
   };
 
   return (
+
     <div>
+       <Header />
+      <Row>
+        <Col>
+          <Sidebar />
+        </Col>
+        <Col>
+        <div>
       <Row>
         <Col>
           <div
@@ -199,6 +209,10 @@ const DiscountSettings = () => {
         </Col>
       </Row>
     </div>
+        </Col>
+      </Row>
+    </div>
+    
   );
 };
 

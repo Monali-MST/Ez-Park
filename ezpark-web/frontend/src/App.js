@@ -12,7 +12,7 @@ import SuccessPay from "./Components/Payment/SuccessPay";
 import ClosePay from "./Components/Payment/ClosePay";
 
 import UserDashboard from "./Pages/UserDashboardPage/UserDashboardPage";
-import BookingPage from "./Pages/BookingPage/BookingPage";
+//import BookingPage from "./Pages/BookingPage/BookingPage";
 import SlotSelect from "./Pages/SlotSelect/SlotSelect";
 import HomePage from "./Pages/HomePage/HomePage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
@@ -56,7 +56,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
             <Route path="/Slotselection" element={<SlotSelect />} />
-            <Route path="/booking" element={<BookingPage />} />
+          
             {/* 
 
             <Route path="/about" element={<AboutUsPage />} />

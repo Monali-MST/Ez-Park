@@ -5,6 +5,11 @@ import Button from "react-bootstrap/Button";
 import "../../styles/refund.css";
 import ClientRefundRequest from "./ClientRefundRequest";
 import SharedToast from "../../helper/SharedToast";
+import { sendMail } from "../../helper/helper";
+import { getUser } from "../../helper/getUser";
+import Header from "../Header/Header";
+import { Col, Row } from "react-bootstrap";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Refund = () => {
   const [showToast, setShowToast] = useState(false);
@@ -14,7 +19,7 @@ const Refund = () => {
   const [payamount, setPayamount] = useState(0);
   const [duration, setDuration] = useState(0);
   const [action, setAction] = useState(0);
-  const [ paymentId, setPaymentId ] = useState();
+  const [paymentId, setPaymentId] = useState();
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -74,7 +79,7 @@ const Refund = () => {
           .post("/user/get_paid_amount", { Booking_id: bookingData.BookingID })
           .then((res) => {
             setPayamount(res.data.PaymentAmount);
-            setPaymentId(res.data.Payment_intent_id)
+            setPaymentId(res.data.Payment_intent_id);
           });
       } catch (err) {
         console.log(err);
@@ -88,6 +93,7 @@ const Refund = () => {
     try {
       const { status } = await baseUrl.post("/user/save_cancel_booking", {
         Booking_id: bookingData.BookingID,
+        
       });
       if (status === 201) {
         console.log("Booking canceled successfully");
@@ -100,29 +106,42 @@ const Refund = () => {
   }
   async function handleCancelAndRefund() {
     try {
-      const { status } = await baseUrl.post("/user/cancel_and_refund", {
+      const data = {
         Booking_id: bookingData.BookingID,
         amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
         redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3,
-        paymentID:paymentId
-      });
+        paymentID: paymentId,
+        user_id: getUser().id,
+        action_id: 5,
+        hours: 6,
+      };
+      const { status } = await baseUrl.post("/user/cancel_and_refund", data);
       if (status === 201) {
         console.log("Refunded and Booking canceled successfully");
-        await baseUrl.post("/user/save_refund_details", {
-          Booking_id: bookingData.BookingID,
-          amount: duration >= 3 ? (duration >= 5 ? payamount : payamount / 2) : 0,
-          redundLevel: duration >= 3 ? (duration >= 5 ? 1 : 2) : 3,
-          paymentID:payamount
-        });
+        await baseUrl.post("/user/save_refund_details", data);
       }
+      const user = getUser();
+      await sendMail(
+        user.name,
+        user.email,
+        `Booking ID: ${bookingData.BookingID} has been canceled successfully and ${data.amount} USD has been restored`
+      );
       setShowToast(!showToast);
-    //  window.history.back();
+      //  window.history.back();
     } catch (err) {
       alert("Something went wrong.");
     }
   }
   return (
-    <div className="container p-5" style={{ maxWidth: "800px" }}>
+
+    <div>
+       <Header />
+      <Row>
+        <Col>
+          <Sidebar />
+        </Col>
+        <Col>
+        <div className="container p-5" style={{ maxWidth: "800px" }}>
       <h1 style={{ fontFamily: "Arial, sans-serif" }}>Cancel Booking</h1>
       <table className="table refund-table" style={{ borderRadius: "8px" }}>
         <tbody>
@@ -239,6 +258,11 @@ const Refund = () => {
         <div></div>
       )}
     </div>
+        </Col>
+      </Row>
+    </div>
+
+   
   );
 };
 

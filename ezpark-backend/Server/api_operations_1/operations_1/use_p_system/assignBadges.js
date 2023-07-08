@@ -21,7 +21,7 @@ async function assignBadges(req, res) {
         if (err) throw err;
         const sendData = {
           status: 0,
-          msg: { badge_name: "", badge_id: 0 },
+          msg: { badge_name: "", badge_id: 0, points },
           err: null,
         };
 

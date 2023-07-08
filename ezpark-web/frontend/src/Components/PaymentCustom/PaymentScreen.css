@@ -1,9 +1,7 @@
-#root {
+
+  .checkout-form {
     display: flex;
     align-items: center;
-  }
-  
-  body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -14,7 +12,7 @@
     width: 100vw;
   }
   
-  form {
+  .checkout-form form {
     width: 30vw;
     min-width: 500px;
     align-self: center;
@@ -25,7 +23,7 @@
   }
   
   
-  #payment-message {
+  .checkout-form form  #payment-message {
     color: rgb(105, 115, 134);
     font-size: 16px;
     line-height: 20px;
@@ -33,12 +31,12 @@
     text-align: center;
   }
   
-  #payment-element {
+  .checkout-form form  #payment-element {
     margin-bottom: 24px;
   }
   
   /* Buttons and links */
-  button {
+  .checkout-form form  button {
     background: #5469d4;
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -54,23 +52,23 @@
     width: 100%;
   }
   
-  button:hover {
+  .checkout-form form  button:hover {
     filter: contrast(115%);
   }
   
-  button:disabled {
+  .checkout-form form  button:disabled {
     opacity: 0.5;
     cursor: default;
   }
   
   /* spinner/processing state, errors */
-  .spinner,
-  .spinner:before,
-  .spinner:after {
+  .checkout-form form  .spinner,
+  .checkout-form form  .spinner:before,
+  .checkout-form form  .spinner:after {
     border-radius: 50%;
   }
   
-  .spinner {
+  .checkout-form form  .spinner {
     color: #ffffff;
     font-size: 22px;
     text-indent: -99999px;
@@ -84,13 +82,13 @@
     transform: translateZ(0);
   }
   
-  .spinner:before,
-  .spinner:after {
+  .checkout-form form  .spinner:before,
+  .checkout-form form  .spinner:after {
     position: absolute;
     content: '';
   }
   
-  .spinner:before {
+  .checkout-form form  .spinner:before {
     width: 10.4px;
     height: 20.4px;
     background: #5469d4;
@@ -103,7 +101,7 @@
     animation: loading 2s infinite ease 1.5s;
   }
   
-  .spinner:after {
+  .checkout-form form  .spinner:after {
     width: 10.4px;
     height: 10.2px;
     background: #5469d4;
@@ -128,7 +126,7 @@
   }
   
   @media only screen and (max-width: 600px) {
-    form {
+    .checkout-form form  form {
       width: 80vw;
       min-width: initial;
     }

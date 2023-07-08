@@ -1,7 +1,7 @@
 var connection = require("../../../service/connection");
 const queries = require("../../../sql/sql");
 
-module.exports = async function save_payment_details(req, res) {
+module.exports = async function save_payment_details(req, res, next) {
   console.log(req.body);
   
   const values = [ 
@@ -16,6 +16,7 @@ module.exports = async function save_payment_details(req, res) {
     if (err) {
       console.log(err)
       return res.json(err)};
-    return res.status(201).send("Payment details has been saved successfully");
+      next()
+    return res.status(201).send("Payment details has been saved successfully and point updated");
   });
 };

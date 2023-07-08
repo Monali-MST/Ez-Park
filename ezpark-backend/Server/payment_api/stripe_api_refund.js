@@ -8,7 +8,7 @@ app.use(cors());
 
 function calculate_refund_amount(amount, duration) {
   if (duration >= 5) return amount;
-  else if (duration >= 3) return amount / 2;
+  else if (duration >= 3) return amount/2;
   else return 0;
 }
 
@@ -19,13 +19,13 @@ module.exports = async function stripe_api_refund(req, res, next) {
   const cancellationDuration = 5;
 
   const refundAmount = calculate_refund_amount(amount, cancellationDuration);
-  console.log(amount)
+  console.log(refundAmount)
 
   try {
     // Initiate refund
     const refund = await stripe.refunds.create({
       payment_intent: paymentID, //should not be hard cord   //remember to use a id that has paid more than pamymentAmount that booking belong
-      amount: refundAmount*100,
+      amount: Math.round(refundAmount*100),
       reason: "requested_by_customer",
     });
 

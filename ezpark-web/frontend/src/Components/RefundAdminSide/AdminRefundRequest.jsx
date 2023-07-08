@@ -43,7 +43,16 @@ const AdminRefundRequest = () => {
       await axios.delete(
         "http://localhost:8800/api/user/reject_refund_request" + id
       );
+
       setToastShow(!toastShow);
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/user/get_refund_request"
+        );
+        setRequests(res.data);
+      } catch (err) {
+        console.log(err);
+      }
       //window.location.reload();
     } catch (err) {
       console.log(err);

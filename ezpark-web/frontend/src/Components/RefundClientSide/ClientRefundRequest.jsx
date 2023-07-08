@@ -56,11 +56,7 @@ const ClientRefundRequest = (props) => {
               fontSize: "20px",
             }}
           >
-            <br />
-            you are not in the required time duration to get a refund. but you
-            can still request a refund.
-            <br />
-            <br />
+            
           </div>
           <Form>
             <Form.Group

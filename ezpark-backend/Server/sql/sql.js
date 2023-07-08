@@ -10,7 +10,7 @@ const queries = {
 
   //point system update data
   update_no_of_points_in_user:
-    "UPDATE User_Details SET `UserPoints`='?' WHERE UserID = '?';",
+    "UPDATE User_Details SET `UserPoints`='?', `Badge`= ? WHERE UserID = '?';",
   update_discount_data:
     "UPDATE `ezpark`.`discounts_details` SET `Discounts_Name` = ?, `Discount` = ?, `ExpDate` = ? WHERE (`BadgeId` = ? );",
 
@@ -46,6 +46,8 @@ const queries = {
   //booking
   insert_booking_cancelation_details:
     "INSERT INTO `ezpark`.`bookingcancellation` (`CancelDate`, `BookingID`) VALUES (?);",
+  update_cancel_booking_status:
+    "UPDATE `ezpark`.`booking` SET `cancel` = '1' WHERE (`BookingID` = '?');",
 
   //refund
   get_booking_by_bookID: "SELECT * FROM ezpark.booking WHERE BookingID= ?;",

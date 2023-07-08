@@ -5,13 +5,13 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import baseUrl from "../../Apis/baseUrl";
 
+import "./PaymentScreen.css"
 export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [email, setEmail ] = useState("monalithennakoon2@gmail.com")
+  const [email, setEmail ] = useState()
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -26,26 +26,6 @@ export default function CheckoutForm(props) {
     if (!clientSecret) {
       return;
     }
-
- 
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      //alert(clientSecret);
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
   }, [stripe]);
 
   const handleSubmit = async (e) => {
@@ -86,10 +66,11 @@ export default function CheckoutForm(props) {
   }
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <div className="checkout-form">
+      <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
-        // onChange={(e) => setEmail(e.target.value)}
+         onChange={(e) => setEmail(e.value.email)}
         
       //  onChange={((e)=>{setEmail(e.complete)})}
       />
@@ -102,5 +83,6 @@ export default function CheckoutForm(props) {
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
+    </div>
   );
 }

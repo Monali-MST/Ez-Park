@@ -52,7 +52,7 @@ router.route("/send_refund_request").post(send_refund_request);
 router.route("/reject_refund_request:id").delete(reject_refund_request);
 
 //payment
-router.route("/save_payment_details").post(save_payment_details);
+router.route("/save_payment_details").post(save_payment_details, updatePoints);
 router.route("/get_payment_details").get(get_payment_details);
 router.route("/get_paid_amount").post(get_paid_amount);
 
@@ -60,11 +60,11 @@ router.route("/get_paid_amount").post(get_paid_amount);
 router.route("/get_temp_book_details").post(get_temp_booking_details);
 
 //bookingcancelation
-router.route("/save_cancel_booking").post(save_cancel_booking);
+router.route("/save_cancel_booking").post(save_cancel_booking, updatePoints);
 router
   .route("/cancel_and_refund_req")
-  .post(send_refund_request, save_cancel_booking);
-router.route("/cancel_and_refund").post(stripe_api_refund, save_cancel_booking);
+  .post(send_refund_request, save_cancel_booking, updatePoints);
+router.route("/cancel_and_refund").post(stripe_api_refund, save_cancel_booking, updatePoints);
 
 //refund
 router.route("/refund_and_save_refund_details").post(stripe_api_refund,save_refund_details);
