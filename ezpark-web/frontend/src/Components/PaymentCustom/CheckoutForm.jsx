@@ -3,15 +3,15 @@ import {
   PaymentElement,
   LinkAuthenticationElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
-import "./PaymentScreen.css"
+import "./PaymentScreen.css";
 export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [email, setEmail ] = useState()
+  const [email, setEmail] = useState();
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -62,27 +62,31 @@ export default function CheckoutForm(props) {
   };
 
   const paymentElementOptions = {
-    layout: "tabs"
-  }
+    layout: "tabs",
+  };
 
   return (
     <div className="checkout-form">
       <form id="payment-form" onSubmit={handleSubmit}>
-      <LinkAuthenticationElement
-        id="link-authentication-element"
-         onChange={(e) => setEmail(e.value.email)}
-        
-      //  onChange={((e)=>{setEmail(e.complete)})}
-      />
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+        <LinkAuthenticationElement
+          id="link-authentication-element"
+          onChange={(e) => setEmail(e.value.email)}
+
+          //  onChange={((e)=>{setEmail(e.complete)})}
+        />
+        <PaymentElement id="payment-element" options={paymentElementOptions} />
+        <button disabled={isLoading || !stripe || !elements} id="submit">
+          <span id="button-text">
+            {isLoading ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              "Pay now"
+            )}
+          </span>
+        </button>
+        {/* Show any error or success messages */}
+        {message && <div id="payment-message">{message}</div>}
+      </form>
     </div>
   );
 }

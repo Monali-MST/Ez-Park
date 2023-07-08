@@ -8,9 +8,7 @@ const Discount = () => {
   useEffect(() => {
     const fetchAlldiscounts = async () => {
       try {
-        const res = await baseUrl.get(
-          "/user/getdiscounts"
-        );
+        const res = await baseUrl.get("/user/getdiscounts");
         setdiscounts(res.data);
       } catch (err) {
         console.log(err);

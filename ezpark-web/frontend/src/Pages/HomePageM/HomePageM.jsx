@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { sendMail } from "../../helper/helper";
-import { Container,  Button } from 'react-bootstrap';
+import { Container, Button } from "react-bootstrap";
 
 const HomePageM = () => {
   return (
@@ -74,8 +74,8 @@ const HomePageM = () => {
           sendMail(
             "Test user",
             "ezparkv@gmail.com",
-            "Hello! \n"
-            +"This is a test mail from the ez park system\nThis is a new line",
+            "Hello! \n" +
+              "This is a test mail from the ez park system\nThis is a new line",
             "Mail tester"
           )
             .then((res) => {

@@ -11,21 +11,20 @@ const CancelBookingButton = () => {
   const navigate = useNavigate();
 
   const bookingData = {
-    BookingID:1,
+    BookingID: 1,
     BookedDate: "2023-07-01",
-    StartTime: '10:07:00',
-    EndTime:'16:00:00',
-    VehicleNo:'CBJ5566',
-    BookingMethod:'online',
-    slot:8,
-    user_email:'pramoddilshan470@gmail.com'
-  }
-  const handleClick = () => {
-    navigate("/refundpage", {state:bookingData});
+    StartTime: "10:07:00",
+    EndTime: "16:00:00",
+    VehicleNo: "CBJ5566",
+    BookingMethod: "online",
+    slot: 8,
+    user_email: "pramoddilshan470@gmail.com",
   };
-  
+  const handleClick = () => {
+    navigate("/refundpage", { state: bookingData });
+  };
+
   return (
-    
     <>
       <Button variant="primary" onClick={handleShow}>
         Cancel Booking

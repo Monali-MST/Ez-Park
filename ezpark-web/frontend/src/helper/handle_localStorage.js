@@ -3,10 +3,8 @@ export function save_localStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     throw new Error(error);
-
   }
 }
-
 
 export function load_localStorage(key) {
   try {
@@ -15,31 +13,27 @@ export function load_localStorage(key) {
       return value;
     }
     throw new Error("value could't exist");
-    
   } catch (error) {
     throw new Error(error);
   }
-
 }
-export function delete_localStorage(key){
+export function delete_localStorage(key) {
   try {
     localStorage.removeItem(key);
   } catch (error) {
     throw new Error(error);
-
   }
 }
 
-export function clear_localStorage(){
+export function clear_localStorage() {
   try {
     localStorage.clear();
   } catch (error) {
     throw new Error(error);
-
   }
 }
 
 export const localStorage_keys = {
-  temp_payment:"temp-payment",
-  payment_RandomId:"payment_RandomId"
-}
+  temp_payment: "temp-payment",
+  payment_RandomId: "payment_RandomId",
+};

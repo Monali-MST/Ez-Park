@@ -83,12 +83,12 @@ const PaymentDetails = ({ slotPrice, startTime, endTime, bookedDate }) => {
         alert("Something went wrong.");
       }
     }
-    const durationData = {startTime, endTime, totalBookingHours, bookedDate};
+    const durationData = { startTime, endTime, totalBookingHours, bookedDate };
     console.log(durationData);
-    localStorage.setItem("startTime", startTime)
-    localStorage.setItem("endTime", endTime)
-    localStorage.setItem("totalBookingHours", totalBookingHours)
-    localStorage.setItem("bookedDate", bookedDate)
+    localStorage.setItem("startTime", startTime);
+    localStorage.setItem("endTime", endTime);
+    localStorage.setItem("totalBookingHours", totalBookingHours);
+    localStorage.setItem("bookedDate", bookedDate);
     getDiscount();
   }, []);
 

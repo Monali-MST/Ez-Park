@@ -93,7 +93,6 @@ const Refund = () => {
     try {
       const { status } = await baseUrl.post("/user/save_cancel_booking", {
         Booking_id: bookingData.BookingID,
-        
       });
       if (status === 201) {
         console.log("Booking canceled successfully");
@@ -133,136 +132,136 @@ const Refund = () => {
     }
   }
   return (
-
     <div>
-       <Header />
+      <Header />
       <Row>
         <Col>
           <Sidebar />
         </Col>
         <Col>
-        <div className="container p-5" style={{ maxWidth: "800px" }}>
-      <h1 style={{ fontFamily: "Arial, sans-serif" }}>Cancel Booking</h1>
-      <table className="table refund-table" style={{ borderRadius: "8px" }}>
-        <tbody>
-          <tr>
-            <th>Booking ID:</th>
-            <td>{bookingData.BookingID}</td>
-          </tr>
-          <tr>
-            <th>Booked Date:</th>
-            <td>{bookingData.BookedDate}</td>
-          </tr>
-          <tr>
-            <th>Start Time:</th>
-            <td>{bookingData.StartTime}</td>
-          </tr>
-          <tr>
-            <th>End Time:</th>
-            <td>{bookingData.EndTime}</td>
-          </tr>
-          <tr>
-            <th>Vehicle No:</th>
-            <td>{bookingData.VehicleNo}</td>
-          </tr>
-          <tr>
-            <th>Booking Method:</th>
-            <td>{bookingData.BookingMethod}</td>
-          </tr>
-          <tr>
-            <th>Slot:</th>
-            <td>{bookingData.slot}</td>
-          </tr>
-          <tr>
-            <th>User Email:</th>
-            <td>{bookingData.user_email}</td>
-          </tr>
-        </tbody>
-      </table>
-      <table
-        className="table refund-table"
-        style={{ borderRadius: "8px", marginTop: "2.5rem" }}
-      >
-        <tbody>
-          <tr>
-            <th>Paid Amount:</th>
-            <td>{payamount}</td>
-          </tr>
-          <tr>
-            <th>Refund Level:</th>
-            <td>
-              {duration >= 3
-                ? duration >= 5
-                  ? "Fully Refund"
-                  : "Partially Refund"
-                : "No Refund"}
-            </td>
-          </tr>
-          <tr>
-            <th>Refund:</th>
-            <td>
-              {duration >= 3
-                ? duration >= 5
-                  ? `${payamount}`
-                  : `${payamount / 2}`
-                : 0}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="action-btns">
-        {duration >= 3 ? (
-          <Button
-            variant="warning"
-            onClick={() => {
-              setAction(1);
-              handleCancelAndRefund();
-            }}
-          >
-            Cancel Booking and Refund
-          </Button>
-        ) : (
-          <div>
-            <Button
-              variant="warning"
-              onClick={() => {
-                setAction(2);
-                handleCancelBook();
-              }}
+          <div className="container p-5" style={{ maxWidth: "800px" }}>
+            <h1 style={{ fontFamily: "Arial, sans-serif" }}>Cancel Booking</h1>
+            <table
+              className="table refund-table"
+              style={{ borderRadius: "8px" }}
             >
-              Cancel Booking
-            </Button>
-            <Button
-              variant="warning"
-              onClick={() => {
-                setAction(3);
-                setModalShow(true);
-              }}
+              <tbody>
+                <tr>
+                  <th>Booking ID:</th>
+                  <td>{bookingData.BookingID}</td>
+                </tr>
+                <tr>
+                  <th>Booked Date:</th>
+                  <td>{bookingData.BookedDate}</td>
+                </tr>
+                <tr>
+                  <th>Start Time:</th>
+                  <td>{bookingData.StartTime}</td>
+                </tr>
+                <tr>
+                  <th>End Time:</th>
+                  <td>{bookingData.EndTime}</td>
+                </tr>
+                <tr>
+                  <th>Vehicle No:</th>
+                  <td>{bookingData.VehicleNo}</td>
+                </tr>
+                <tr>
+                  <th>Booking Method:</th>
+                  <td>{bookingData.BookingMethod}</td>
+                </tr>
+                <tr>
+                  <th>Slot:</th>
+                  <td>{bookingData.slot}</td>
+                </tr>
+                <tr>
+                  <th>User Email:</th>
+                  <td>{bookingData.user_email}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              className="table refund-table"
+              style={{ borderRadius: "8px", marginTop: "2.5rem" }}
             >
-              Cancel & Refund Request
-            </Button>
+              <tbody>
+                <tr>
+                  <th>Paid Amount:</th>
+                  <td>{payamount}</td>
+                </tr>
+                <tr>
+                  <th>Refund Level:</th>
+                  <td>
+                    {duration >= 3
+                      ? duration >= 5
+                        ? "Fully Refund"
+                        : "Partially Refund"
+                      : "No Refund"}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Refund:</th>
+                  <td>
+                    {duration >= 3
+                      ? duration >= 5
+                        ? `${payamount}`
+                        : `${payamount / 2}`
+                      : 0}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="action-btns">
+              {duration >= 3 ? (
+                <Button
+                  variant="warning"
+                  onClick={() => {
+                    setAction(1);
+                    handleCancelAndRefund();
+                  }}
+                >
+                  Cancel Booking and Refund
+                </Button>
+              ) : (
+                <div>
+                  <Button
+                    variant="warning"
+                    onClick={() => {
+                      setAction(2);
+                      handleCancelBook();
+                    }}
+                  >
+                    Cancel Booking
+                  </Button>
+                  <Button
+                    variant="warning"
+                    onClick={() => {
+                      setAction(3);
+                      setModalShow(true);
+                    }}
+                  >
+                    Cancel & Refund Request
+                  </Button>
+                </div>
+              )}
+            </div>
+            <ShowModel />
+            {showToast ? (
+              <SharedToast
+                title="Cancel Booking"
+                description="Booking has canceled successfully!"
+                show={showToast}
+                onHide={() => {
+                  setShowToast(false);
+                }}
+              />
+            ) : (
+              <div></div>
+            )}
           </div>
-        )}
-      </div>
-      <ShowModel />
-      {showToast ? (
-        <SharedToast
-          title="Cancel Booking"
-          description="Booking has canceled successfully!"
-          show={showToast}
-          onHide={() => {
-            setShowToast(false);
-          }}
-        />
-      ) : (
-        <div></div>
-      )}
-    </div>
         </Col>
       </Row>
     </div>
-
-   
   );
 };
 

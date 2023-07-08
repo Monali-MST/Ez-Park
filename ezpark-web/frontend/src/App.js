@@ -50,13 +50,12 @@ function App() {
               element={<ClientRefundRequestPage />}
             />
 
-            
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
             <Route path="/Slotselection" element={<SlotSelect />} />
-          
+
             {/* 
 
             <Route path="/about" element={<AboutUsPage />} />

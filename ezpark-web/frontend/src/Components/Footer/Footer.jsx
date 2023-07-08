@@ -63,24 +63,31 @@ const Footer = () => {
             <div>
               <h4>Follow Us on</h4>
               <div>
-          <ul className="d-flex gap-3 list-unstyled">
-            <li><a href="#"><i className="bi bi-facebook"></i></a></li>
-            <li><a href="#"><i className="bi bi-twitter"></i></a></li>
-            <li><a href="#"><i className="bi bi-instagram"></i></a></li>
-          </ul>
-        </div>
+                <ul className="d-flex gap-3 list-unstyled">
+                  <li>
+                    <a href="#">
+                      <i className="bi bi-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="bi bi-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i className="bi bi-instagram"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="d-flex justify-content-center">
           <div className="copyright">
-            <p>
-              Developed and maintained by{" "}
-              
-                company
-              
-            </p>
+            <p>Developed and maintained by company</p>
           </div>
         </div>
       </div>

@@ -5,52 +5,50 @@ import "../../styles/Sidebar.css";
 const Sidebar = () => {
   return (
     <section>
-      <nav className="navbar">
+      <nav className="navsidebar">
         <div className="navbar-container">
-
           <div className="item-list">
             <ul className="menu">
               <li className="navbar-item">
                 <a href="/userdashboard/:id" class="menu-btn active">
-                Dashboard
+                  Dashboard
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/myaccount" class="menu-btn">
-                Profile
+                  Profile
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/Slotselection" class="menu-btn">
-                Bookings
+                  Bookings
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/mybooking" class="menu-btn">
-                My Bookings
+                  My Bookings
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/vehicledetails" class="menu-btn">
-                Vehicle Details
+                  Vehicle Details
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/about" class="menu-btn">
-                About Us
+                  About Us
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/supoort" class="menu-btn">
-                Support
+                  Support
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/rating" class="menu-btn">
-                Review & Rating
+                  Review & Rating
                 </a>
               </li>
-              
             </ul>
           </div>
         </div>

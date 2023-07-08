@@ -21,7 +21,7 @@ const AdminRefundRequest = () => {
   const [requests, setRequests] = useState([]);
   const [id, setId] = useState();
   const [bookingId, setBookingId] = useState();
-  const [ paymentId, setPaymentId ] = useState();
+  const [paymentId, setPaymentId] = useState();
   const [amount, setAmount] = useState();
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const AdminRefundRequest = () => {
           Booking_id: bookingId,
           amount: amount,
           redundLevel: 2,
-          paymentID:paymentId
+          paymentID: paymentId,
         }
       );
       if (status === 201) {
@@ -81,7 +81,6 @@ const AdminRefundRequest = () => {
         } catch (err) {
           console.log(err);
         }
-        
       }
       setShowToast(!showToast);
       //window.history.reload();
@@ -167,7 +166,6 @@ const AdminRefundRequest = () => {
               <p>
                 <b>Reason : </b>
                 {request.Reason}
-                
               </p>
               <p>
                 <b>Booking ID : </b>
@@ -178,34 +176,33 @@ const AdminRefundRequest = () => {
                 {new Date(request.Requested_date).toDateString()}
               </p>
               <p>
-                <b>Paid Amount : </b>${request.PaymentAmount}                               
+                <b>Paid Amount : </b>${request.PaymentAmount}
               </p>
-              <div style={{display:"flex", justifyContent:"right"}}>
-                  <Button
-                    variant="secondary"
-                    onClick={() => {
-                      handleShowR();
-                      setId(request.Refund_Request_id);
-                    }}
-                    style={{marginRight: "1rem"}}
-                  >
-                    Reject Reqest
-                  </Button>{" "}
-                  <Button
-                    variant="warning"
-                    onClick={() => {
-                      handleShowA();
-                      setBookingId(request.Booking_id);
-                      setAmount(request.PaymentAmount / 2);
-                      setPaymentId(request.Payment_intent_id);
-                      setId(request.Refund_Request_id);
-
-                    }}
-                    style={{marginRight: "2rem"}}
-                  >
-                    Accept Refund
-                  </Button>
-                </div> 
+              <div style={{ display: "flex", justifyContent: "right" }}>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    handleShowR();
+                    setId(request.Refund_Request_id);
+                  }}
+                  style={{ marginRight: "1rem" }}
+                >
+                  Reject Reqest
+                </Button>{" "}
+                <Button
+                  variant="warning"
+                  onClick={() => {
+                    handleShowA();
+                    setBookingId(request.Booking_id);
+                    setAmount(request.PaymentAmount / 2);
+                    setPaymentId(request.Payment_intent_id);
+                    setId(request.Refund_Request_id);
+                  }}
+                  style={{ marginRight: "2rem" }}
+                >
+                  Accept Refund
+                </Button>
+              </div>
             </Accordion.Body>
           </Accordion.Item>
         ))}

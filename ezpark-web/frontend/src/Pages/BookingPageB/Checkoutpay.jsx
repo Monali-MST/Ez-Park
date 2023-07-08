@@ -8,26 +8,23 @@ import { Col, Row } from "react-bootstrap";
 const BookingPageb = () => {
   return (
     <div>
-
-<Header />
+      <Header />
       <Row>
         <Col>
           <Sidebar />
         </Col>
         <Col>
-        <center>
-        <PaymentDetails
-          slotPrice={10}
-          startTime={"18:30:00"}
-          endTime={"20:00:00"}
-          bookedDate = {"2023-07-20"}
-        />
-        {/* <CheckoutPayButton /> */}
-      </center>
+          <center>
+            <PaymentDetails
+              slotPrice={10}
+              startTime={"18:30:00"}
+              endTime={"20:00:00"}
+              bookedDate={"2023-07-20"}
+            />
+            {/* <CheckoutPayButton /> */}
+          </center>
         </Col>
       </Row>
-
-     
     </div>
   );
 };

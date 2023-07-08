@@ -5,7 +5,6 @@ import UserBoard from "./UserBoard";
 import { Col, Row } from "react-bootstrap";
 import "../../styles/UserDashboardPage.css";
 
-
 const UserDashboard = () => {
   return (
     <div>

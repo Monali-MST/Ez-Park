@@ -8,7 +8,9 @@ const RefundLevels = () => {
   useEffect(() => {
     const fetchAllRefund_Levels = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/user/getrefund_level");
+        const res = await axios.get(
+          "http://localhost:8800/api/user/getrefund_level"
+        );
         setRefund_Levels(res.data);
       } catch (err) {
         console.log(err);

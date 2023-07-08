@@ -12,11 +12,11 @@ function Navbar() {
 
   return (
     <header>
-      <div >
-        <Header/>
+      <div>
+        <Header />
       </div>
       <nav ref={navRef}>
-      <a href="/#">HOME</a>
+        <a href="/#">HOME</a>
         <a href="/<about">ABOUT US</a>
         <a href="/supoort">SUPPORT</a>
         <a href="/#">CONTACT US</a>

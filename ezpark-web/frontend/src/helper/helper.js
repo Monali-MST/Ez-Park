@@ -6,13 +6,16 @@ export async function sendMail(username, contactInfo, text, subject) {
     userEmail: contactInfo,
     text,
     subject,
-  }
-  console.log(mailData)
+  };
+  console.log(mailData);
   try {
-    const mailRes = await axios.post("http://localhost:8800/sendMail",mailData );
+    const mailRes = await axios.post(
+      "http://localhost:8800/sendMail",
+      mailData
+    );
     console.log(mailRes.data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return Promise.reject({ error });
   }
 }
