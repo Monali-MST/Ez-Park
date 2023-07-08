@@ -9,14 +9,10 @@ const UserDashboard = () => {
   return (
     <div>
       <Header />
-      <Row>
-        <Col>
-          <Sidebar />
-        </Col>
-        <Col>
-          <UserBoard />
-        </Col>
-      </Row>
+      <Sidebar />
+      <div className="page-container">
+        <UserBoard />
+      </div>
     </div>
   );
 };

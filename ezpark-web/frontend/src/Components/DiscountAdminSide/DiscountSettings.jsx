@@ -71,160 +71,156 @@ const DiscountSettings = () => {
   return (
     <div>
       <Header />
-      <Row>
-        <Col>
-          <Sidebar />
-        </Col>
-        <Col>
-          <div>
-            <Row>
-              <Col>
-                <div
-                  className="center-content"
+      <Sidebar />
+      <div className="page-container">
+        <div>
+          <Row>
+            <Col>
+              <div
+                className="center-content"
+                style={{
+                  marginLeft: "5rem",
+                  marginTop: "2rem",
+                  maxWidth: "500px",
+                }}
+              >
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group
+                    as={Row}
+                    className="mb-3"
+                    controlId="formHorizontalExpDate"
+                  >
+                    <Form.Label column sm={6}>
+                      Exp. Date<span style={{ color: "red" }}>*</span>
+                    </Form.Label>
+                    <Col sm={10}>
+                      <Form.Control
+                        type="date"
+                        placeholder="Enter exp. date"
+                        value={discountDetails.exp_date}
+                        onChange={handleChange}
+                        name="exp_date"
+                        autoFocus
+                        required
+                      />
+                    </Col>
+                  </Form.Group>
+                  <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={6}>
+                      Discount Name:<span style={{ color: "red" }}>*</span>
+                    </Form.Label>
+                    <Col sm={10}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter discount name"
+                        value={discountDetails.discount_name}
+                        onChange={handleChange}
+                        name="discount_name"
+                        required
+                      />
+                    </Col>
+                  </Form.Group>
+
+                  <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={6}>
+                      Gold badge Percentage (%):
+                      <span style={{ color: "red" }}>*</span>
+                    </Form.Label>
+                    <Col sm={10}>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter discount percentage"
+                        value={
+                          discountDetails.gold_discount_precentage > 0
+                            ? discountDetails.gold_discount_precentage
+                            : ""
+                        }
+                        onChange={handleChange}
+                        name="gold_discount_precentage"
+                        required
+                      />
+                    </Col>
+                  </Form.Group>
+
+                  <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={6}>
+                      Silver badge Percentage (%):
+                      <span style={{ color: "red" }}>*</span>
+                    </Form.Label>
+                    <Col sm={10}>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter discount percentage"
+                        value={
+                          discountDetails.silver_discount_precentage > 0
+                            ? discountDetails.silver_discount_precentage
+                            : ""
+                        }
+                        onChange={handleChange}
+                        name="silver_discount_precentage"
+                        required
+                      />
+                    </Col>
+                  </Form.Group>
+
+                  <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={6}>
+                      Bronze badge Percentage (%):
+                      <span style={{ color: "red" }}>*</span>
+                    </Form.Label>
+                    <Col sm={10}>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter discount percentage"
+                        value={
+                          discountDetails.bronze_discount_precentage > 0
+                            ? discountDetails.bronze_discount_precentage
+                            : ""
+                        }
+                        onChange={handleChange}
+                        name="bronze_discount_precentage"
+                        required
+                      />
+                    </Col>
+                  </Form.Group>
+
+                  <Form.Group as={Row} className="mb-3">
+                    <Col sm={{ span: 9, offset: 3 }}>
+                      <Button
+                        variant="secondary"
+                        onClick={handleReset}
+                        style={{ marginLeft: "4rem" }}
+                      >
+                        Reset
+                      </Button>{" "}
+                      <Button
+                        variant="warning"
+                        type="submit"
+                        style={{ marginLeft: "1rem" }}
+                      >
+                        Set Discounts
+                      </Button>
+                    </Col>
+                  </Form.Group>
+                </Form>
+              </div>
+            </Col>
+            <Col>
+              <div>
+                <img
                   style={{
-                    marginLeft: "12rem",
-                    marginTop: "3rem",
-                    maxWidth: "500px",
+                    height: "400px",
+                    width: "400px",
+                    marginTop: "6rem",
                   }}
-                >
-                  <Form onSubmit={handleSubmit}>
-                    <Form.Group
-                      as={Row}
-                      className="mb-3"
-                      controlId="formHorizontalExpDate"
-                    >
-                      <Form.Label column sm={6}>
-                        Exp. Date<span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Col sm={10}>
-                        <Form.Control
-                          type="date"
-                          placeholder="Enter exp. date"
-                          value={discountDetails.exp_date}
-                          onChange={handleChange}
-                          name="exp_date"
-                          autoFocus
-                          required
-                        />
-                      </Col>
-                    </Form.Group>
-                    <Form.Group as={Row} className="mb-3">
-                      <Form.Label column sm={6}>
-                        Discount Name:<span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Col sm={10}>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter discount name"
-                          value={discountDetails.discount_name}
-                          onChange={handleChange}
-                          name="discount_name"
-                          required
-                        />
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3">
-                      <Form.Label column sm={6}>
-                        Gold badge Percentage (%):
-                        <span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Col sm={10}>
-                        <Form.Control
-                          type="number"
-                          placeholder="Enter discount percentage"
-                          value={
-                            discountDetails.gold_discount_precentage > 0
-                              ? discountDetails.gold_discount_precentage
-                              : ""
-                          }
-                          onChange={handleChange}
-                          name="gold_discount_precentage"
-                          required
-                        />
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3">
-                      <Form.Label column sm={6}>
-                        Silver badge Percentage (%):
-                        <span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Col sm={10}>
-                        <Form.Control
-                          type="number"
-                          placeholder="Enter discount percentage"
-                          value={
-                            discountDetails.silver_discount_precentage > 0
-                              ? discountDetails.silver_discount_precentage
-                              : ""
-                          }
-                          onChange={handleChange}
-                          name="silver_discount_precentage"
-                          required
-                        />
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3">
-                      <Form.Label column sm={6}>
-                        Bronze badge Percentage (%):
-                        <span style={{ color: "red" }}>*</span>
-                      </Form.Label>
-                      <Col sm={10}>
-                        <Form.Control
-                          type="number"
-                          placeholder="Enter discount percentage"
-                          value={
-                            discountDetails.bronze_discount_precentage > 0
-                              ? discountDetails.bronze_discount_precentage
-                              : ""
-                          }
-                          onChange={handleChange}
-                          name="bronze_discount_precentage"
-                          required
-                        />
-                      </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} className="mb-3">
-                      <Col sm={{ span: 9, offset: 3 }}>
-                        <Button
-                          variant="secondary"
-                          onClick={handleReset}
-                          style={{ marginLeft: "4rem" }}
-                        >
-                          Reset
-                        </Button>{" "}
-                        <Button
-                          variant="warning"
-                          type="submit"
-                          style={{ marginLeft: "1rem" }}
-                        >
-                          Set Discounts
-                        </Button>
-                      </Col>
-                    </Form.Group>
-                  </Form>
-                </div>
-              </Col>
-              <Col>
-                <div>
-                  <img
-                    style={{
-                      height: "400px",
-                      width: "400px",
-                      marginTop: "6rem",
-                    }}
-                    src={discountMan}
-                    alt="discountMan"
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
+                  src={discountMan}
+                  alt="discountMan"
+                />
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </div>
     </div>
   );
 };

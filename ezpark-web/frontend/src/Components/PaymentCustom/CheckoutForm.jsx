@@ -6,7 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-import "./PaymentScreen.css";
+import "../../styles/PaymentScreen.css";
 export default function CheckoutForm(props) {
   const stripe = useStripe();
   const elements = useElements();

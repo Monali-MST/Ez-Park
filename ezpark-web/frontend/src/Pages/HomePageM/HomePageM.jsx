@@ -24,11 +24,6 @@ const HomePageM = () => {
         <Link to="/bookingpageb"> To booking page</Link>
       </Button>
 
-      <h5>Custom Payment to get payment intend id (in booking page)</h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/bookingpageb"> To booking </Link>
-      </Button>
-
       <h5>Refund, Refund Requests(with cancel booking button)</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/cancelbooking">To cancel booking page</Link>
@@ -41,7 +36,6 @@ const HomePageM = () => {
 
       <hr></hr>
 
-      {/* <h5>(In testing level)</h5> */}
       <h3>Admin Side functions</h3>
       <br></br>
       {/* <h5>

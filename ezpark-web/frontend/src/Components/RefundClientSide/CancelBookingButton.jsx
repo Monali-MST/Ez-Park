@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Header from "../Header/Header";
+import Sidebar from "../Sidebar/Sidebar";
 
 const CancelBookingButton = () => {
   const [show, setShow] = useState(false);
@@ -25,11 +27,14 @@ const CancelBookingButton = () => {
   };
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Cancel Booking
-      </Button>
-
+    <div>
+      <Header />
+      <Sidebar />
+      <div className="page-container">
+        <Button className="m-4 center" variant="primary" onClick={handleShow}>
+          Cancel Booking
+        </Button>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Booking Cancellation</Modal.Title>
@@ -46,7 +51,7 @@ const CancelBookingButton = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 

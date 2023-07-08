@@ -13,7 +13,11 @@
   --textColor: #000;
 }
 
-header {
+/* .navbar-header {
+  position: fixed;
+} */
+
+.navbar-header header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,17 +28,17 @@ header {
   border: 2px solid var(--secondaryColor);
 }
 
-nav a {
+.navbar-header nav a {
   margin: 0 1rem;
   color: var(--textColor);
   text-decoration: none;
 }
 
-nav a:hover {
+.navbar-header nav a:hover {
   color: var(--secondaryColor);
 }
 
-header .nav-btn {
+.navbar-header header .nav-btn {
   padding: 5px;
   cursor: pointer;
   background: transparent;
@@ -46,19 +50,19 @@ header .nav-btn {
   font-size: 1.8rem;
 }
 
-header div,
-nav {
+.navbar-header header div,
+.navbar-header nav {
   display: flex;
   align-items: center;
 }
 
 @media only screen and (max-width: 1024px) {
-  header .nav-btn {
+  .navbar-header header .nav-btn {
     visibility: visible;
     opacity: 1;
   }
 
-  header nav {
+  .navbar-header header nav {
     position: fixed;
     top: -100vh;
     left: 0;
@@ -73,17 +77,17 @@ nav {
     transition: 1s;
   }
 
-  header .responsive_nav {
+  .navbar-header header .responsive_nav {
     transform: translateY(100vh);
   }
 
-  nav .nav-close-btn {
+  .navbar-header nav .nav-close-btn {
     position: absolute;
     top: 2rem;
     right: 2rem;
   }
 
-  nav a {
+  .navbar-header nav a {
     font-size: 1.5rem;
   }
 }

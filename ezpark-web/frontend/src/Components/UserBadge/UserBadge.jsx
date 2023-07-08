@@ -34,25 +34,18 @@ const UserBadge = () => {
   return (
     <div>
       <Header />
-      <Row>
-        <Col>
-          <Sidebar />
-        </Col>
-        <Col>
-          <div className="userBadge">
-            <div>
-              <div className="badge-level" style={{ textAlign: "center" }}>
-                <img
-                  src={badgeImgList[userBadge.badge_id - 1]}
-                  width={"250px"}
-                />
-                <h3>{userBadge.badge_name}</h3>
-                <h5>User Points: {userBadge.points} </h5>
-              </div>
+      <Sidebar />
+      <div className="page-container">
+        <div className="userBadge">
+          <div>
+            <div className="badge-level" style={{ textAlign: "center" }}>
+              <img src={badgeImgList[userBadge.badge_id - 1]} width={"250px"} />
+              <h3>{userBadge.badge_name}</h3>
+              <h5>User Points: {userBadge.points} </h5>
             </div>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 };

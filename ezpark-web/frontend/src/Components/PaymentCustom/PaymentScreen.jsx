@@ -3,11 +3,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
-import "./PaymentScreen.css";
+import "../../styles/PaymentScreen.css";
 import { useLocation } from "react-router-dom";
-const stripePromise = loadStripe(
-  "pk_test_51MdZNYKdpK5vl1GeDp6R8Jj1G6CW0kOrMJ7Ab1eY5QDlEePNRdvvFiLLmdgCoHv0dZ85dqhAO6q1OnEYRGaQ6El400gTt2vNIB"
-);
+const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
 const PaymentScreen = () => {
   const [clientSecret, setClientSecret] = useState("");

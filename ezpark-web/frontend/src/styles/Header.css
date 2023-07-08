@@ -22,8 +22,12 @@
 .blk {
   color: #000;
 }
+/* 
+.header-details{
+  position: fixed;
+} */
 
-header {
+.header-details header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,4 +36,30 @@ header {
   background-color: none;
   color: var(--textColor);
   border: 2px solid #faa41e;
+}
+
+.page-name{
+  list-style: none;
+  display: inline-block;
+  padding-left: 50px;
+  padding-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.current-user{
+  list-style: none;
+  display: inline-block;
+  padding-left: 50px;
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.user-type{
+  list-style: none;
+  display: inline-block;
+  padding-left: 50px;
+  padding-top: 20px;
+  font-size: 14px;
 }
