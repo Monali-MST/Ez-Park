@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../Assets/logo_without_text.png";
 import pointImg from "../../Assets/point_picture.png";
 import "../../styles/Header.css";
-import { getUser, getUserAdmin } from "../../helper/getUser";
+import { getUser } from "../../helper/getUser";
 
 export default function Header() {
   const pageNameMap = {
@@ -14,19 +14,10 @@ export default function Header() {
     adminrefundrequest: "Refund Requests View"
   };
 
-  const userMap = {
-    showbadge: getUser,
-    bookingpageb: getUser,
-    cancelbooking: getUser,
-    refundpage: getUser,
-    discountsettings: getUserAdmin,
-    adminrefundrequest: getUserAdmin
-  };
-
   const getCurrentUser = () => {
     const path = window.location.pathname.substring(1);
-    const userFn = userMap[path] || getUser; // Default to getUser if no mapping found
-    return userFn();
+    const isAdminPage = path === "discountsettings" || path === "adminrefundrequest";
+    return getUser(isAdminPage);
   };
 
   const getPageName = () => {
@@ -36,6 +27,7 @@ export default function Header() {
 
   const pageName = getPageName();
   const user = getCurrentUser();
+  const isAdmin = user.type === "admin";
 
   return (
     <div className="header-details">
@@ -61,7 +53,9 @@ export default function Header() {
               className="d-inline-block align-center pointimg"
             />
           </a>
-          <div className="user-type">{user.type}</div>
+          {isAdmin && (
+            <div className="user-type">{user.type}</div>
+          )}
         </div>
       </header>
     </div>
