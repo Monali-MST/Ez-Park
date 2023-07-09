@@ -32,6 +32,7 @@
 .navsidebar a:hover {
   /* background-color: #ddd; */
   transition: background-color 0.3s;
+  color: #faa41e;
 }
 @media only screen and (max-width: 768px) {
   .sidebar {

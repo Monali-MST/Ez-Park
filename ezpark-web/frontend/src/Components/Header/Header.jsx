@@ -1,37 +1,41 @@
 import React from "react";
 import Logo from "../../Assets/logo_without_text.png";
+import pointImg from "../../Assets/point_picture.png";
 import "../../styles/Header.css";
-import { getUser } from "../../helper/getUser";
+import { getUser, getUserAdmin } from "../../helper/getUser";
 
 export default function Header() {
-  const { name } = getUser();
-  const { type } = getUser();
+  const pageNameMap = {
+    showbadge: "User Profile",
+    bookingpageb: "User Booking",
+    cancelbooking: "My Bookings",
+    refundpage: "Cancel Booking",
+    discountsettings: "Discount Settings",
+    adminrefundrequest: "Refund Requests View"
+  };
+
+  const userMap = {
+    showbadge: getUser,
+    bookingpageb: getUser,
+    cancelbooking: getUser,
+    refundpage: getUser,
+    discountsettings: getUserAdmin,
+    adminrefundrequest: getUserAdmin
+  };
+
+  const getCurrentUser = () => {
+    const path = window.location.pathname.substring(1);
+    const userFn = userMap[path] || getUser; // Default to getUser if no mapping found
+    return userFn();
+  };
 
   const getPageName = () => {
-    const path = window.location.pathname;
-    const pageName = path.substring(1); // Remove leading "/"
-    if (pageName === "showbadge") {
-      return "User Profile";
-    }
-    if (pageName === "bookingpageb") {
-      return "User Booking";
-    }
-    if (pageName === "cancelbooking") {
-      return "My Bookings";
-    }
-    if (pageName === "refundpage") {
-      return "Cancel Booking";
-    }
-    if (pageName === "discountsettings") {
-      return "Discount Settings";
-    }
-    if (pageName === "adminrefundrequest") {
-      return "Refund Requests View";
-    }
-    return pageName || "Home"; // Default to "Home" if no page name found
+    const path = window.location.pathname.substring(1);
+    return pageNameMap[path] || path || "Home"; // Default to "Home" if no mapping found
   };
 
   const pageName = getPageName();
+  const user = getCurrentUser();
 
   return (
     <div className="header-details">
@@ -47,8 +51,17 @@ export default function Header() {
         </div>
         <div className="page-name">{pageName}</div>
         <div className="current-user">
-          {name}
-          {/* <div className="user-type">- {type}</div> */}
+          <a href="/showbadge">{user.name}</a>
+          <a href="/pointsystem">
+            <img
+              alt=""
+              src={pointImg}
+              width="40"
+              height="35"
+              className="d-inline-block align-center pointimg"
+            />
+          </a>
+          <div className="user-type">{user.type}</div>
         </div>
       </header>
     </div>

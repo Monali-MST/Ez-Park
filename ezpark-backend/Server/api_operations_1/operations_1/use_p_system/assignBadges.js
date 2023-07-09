@@ -27,7 +27,7 @@ async function assignBadges(req, res) {
 
         // Iterate through each badge level to determine the appropriate badge for the user
         badgeData.forEach((element) => {
-          if (points >= element.Minimum_Points) {
+          if (points >= element.Minimum_Points && sendData.msg.badge_id===0) {
             sendData.status = 200;
             sendData.msg.badge_name = element.Badge_Name;
             sendData.msg.badge_id = element.Badge_ID;

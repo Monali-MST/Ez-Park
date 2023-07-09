@@ -7,7 +7,7 @@ import UserBadge from "./Components/UserBadge/UserBadge";
 import BookingPageb from "./Pages/BookingPageB/Checkoutpay";
 import CancelBookingButton from "./Components/RefundClientSide/CancelBookingButton";
 import Refund from "./Components/RefundClientSide/Refund";
-import CheckoutPayButton from "./Components/Payment/CheckoutPayButton";
+// import CheckoutPayButton from "./Components/Payment/CheckoutPayButton";
 import SuccessPay from "./Components/Payment/SuccessPay";
 import ClosePay from "./Components/Payment/ClosePay";
 
@@ -31,7 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePageM />} />
             <Route path="/pointsystem" element={<PointSystem />} />
-            <Route path="/checkoutpay" element={<CheckoutPayButton />} />
+            {/* <Route path="/checkoutpay" element={<CheckoutPayButton />} /> */}
             <Route path="/successpay" element={<SuccessPay />} />
             <Route path="/closepay" element={<ClosePay />} />
             <Route path="/pointsaddbutton" element={<PointsAddButtonTest />} />
