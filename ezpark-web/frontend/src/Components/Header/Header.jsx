@@ -11,18 +11,22 @@ export default function Header() {
     cancelbooking: "My Bookings",
     refundpage: "Cancel Booking",
     discountsettings: "Discount Settings",
-    adminrefundrequest: "Refund Requests View"
+    adminrefundrequest: "Refund Requests View",
+    myaccount: "My Profile",
+    userdashboard: "DashBoard"
   };
 
   const getCurrentUser = () => {
     const path = window.location.pathname.substring(1);
-    const isAdminPage = path === "discountsettings" || path === "adminrefundrequest";
+    const route = path.split('/')[0]; // Extract the route from the pathname
+    const isAdminPage = route === "discountsettings" || route === "adminrefundrequest";
     return getUser(isAdminPage);
   };
 
   const getPageName = () => {
     const path = window.location.pathname.substring(1);
-    return pageNameMap[path] || path || "Home"; // Default to "Home" if no mapping found
+    const route = path.split('/')[0]; // Extract the route from the pathname
+    return pageNameMap[route] || path || "Home"; // Default to "Home" if no mapping found
   };
 
   const pageName = getPageName();

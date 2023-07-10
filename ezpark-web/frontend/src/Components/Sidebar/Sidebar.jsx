@@ -15,7 +15,7 @@ const Sidebar = () => {
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/myaccount" className="menu-btn">
+                <a href="/myaccount/:id" className="menu-btn">
                   Profile
                 </a>
               </li>

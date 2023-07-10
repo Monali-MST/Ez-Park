@@ -53,6 +53,8 @@ const queries = {
   get_booking_by_bookID: "SELECT * FROM ezpark.booking WHERE BookingID= ?;",
   insert_refund_details:
     "INSERT INTO `ezpark`.`refund_details` (`Refund_amount`, `Refund_level_id`, `RefundDate`, `Booking_id`) VALUES (?);",
+  //user_details
+  get_user_details: "SELECT * FROM ezpark.user_details WHERE UserID = '?';",
 };
 
 module.exports = queries;

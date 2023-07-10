@@ -88,6 +88,11 @@ const HomePageM = () => {
       <Button variant="outline-primary" size="sm">
         <Link to="/adminrefundrequest">to Refund Requests page</Link>
       </Button> */}
+
+      <h5>User Dashboard</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/userdashboard/:id">to User Dashboard</Link>
+      </Button>
     </center>
   );
 };

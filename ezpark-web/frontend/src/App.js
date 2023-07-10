@@ -22,6 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRequestPage";
 import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
 import PaymentScreen from "./Components/PaymentCustom/PaymentScreen";
+import MyProfilePage from "./Pages/UserProfile/MyProfilePage";
 
 function App() {
   return (
@@ -54,7 +55,8 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
-            <Route path="/Slotselection" element={<SlotSelect />} />
+            <Route path="/Slotselection" element={<SlotSelect />} />            
+            <Route path="/myaccount/:id" element={<MyProfilePage />} />
 
             {/* 
 
