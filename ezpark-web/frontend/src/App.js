@@ -23,6 +23,7 @@ import AdminRefundRequestPage from "./Pages/AdminRefundRequestPage/AdminRefundRe
 import ClientRefundRequestPage from "./Pages/ClientRefundRequestPage/ClientRefundRequestPage";
 import PaymentScreen from "./Components/PaymentCustom/PaymentScreen";
 import MyProfilePage from "./Pages/UserProfile/MyProfilePage";
+import AdminDashboard from "./Pages/UserDashboardPage/AdminDashboard";
 
 function App() {
   return (
@@ -57,6 +58,8 @@ function App() {
             <Route path="/userdashboard/:id" element={<UserDashboard />} />
             <Route path="/Slotselection" element={<SlotSelect />} />            
             <Route path="/myaccount/:id" element={<MyProfilePage />} />
+
+            <Route path="/admindashboard/:id" element={<AdminDashboard />} />
 
             {/* 
 

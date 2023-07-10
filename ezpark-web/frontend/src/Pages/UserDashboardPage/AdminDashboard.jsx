@@ -1,19 +1,20 @@
 import React from "react";
-import AdminRefundRequest from "../../Components/RefundAdminSide/AdminRefundRequest";
 import Header from "../../Components/Header/Header";
-import "../../styles/PageContainer.css";
+import UserBoard from "./UserBoard";
+import { Col, Row } from "react-bootstrap";
+import "../../styles/UserDashboardPage.css";
 import SidebarAdmin from "../../Components/Sidebar/SidebarAdmin";
 
-const AdminRefundRequestPage = () => {
+const AdminDashboard = () => {
   return (
     <div>
       <Header />
       <SidebarAdmin />
       <div className="page-container">
-        <AdminRefundRequest />
+        <UserBoard />
       </div>
     </div>
   );
 };
 
-export default AdminRefundRequestPage;
+export default AdminDashboard;

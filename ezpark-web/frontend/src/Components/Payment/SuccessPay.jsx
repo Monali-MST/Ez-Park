@@ -96,7 +96,7 @@ const SuccessPay = () => {
               shipped shortly.
             </p>
 
-            <div className="bg-light p-3 rounded mb-3 ">
+            <div className="bg-light p-3 rounded mb-3 shadow">
               <p className="m-1">
                 <strong>Amount:</strong> {billingInfo.amount} USD
               </p>
@@ -131,7 +131,7 @@ const SuccessPay = () => {
 
       <div className=" text-center">
         <Row className="justify-content-center">
-          <Col md={6} className="bg-white">
+          <Col md={3} className="bg-white">
             <div className="d-flex flex-column gap-4">
               <ReactToPrint
                 trigger={() => <Button variant="primary">Print</Button>}
@@ -139,7 +139,7 @@ const SuccessPay = () => {
               />
               <Button
                 variant="warning"
-                href="/"
+                href="/userdashboard/:id"
                 className="mb-3"
                 onClick={() => {
                   //  delete_localStorage(localStorage_keys.temp_payment);

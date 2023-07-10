@@ -4,13 +4,29 @@ import PaymentDetails from "../../Components/Payment/PaymentDetails";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../Components/Header/Header";
 import { Col, Row } from "react-bootstrap";
+import backgroundImg from "../../Assets/backgroundImg";
 
 const BookingPageb = () => {
   return (
     <div>
       <Header />
+      <img
+        className="background-pic"
+        src={backgroundImg}
+        alt="profile picture"
+        style={{
+          marginLeft: "200px",
+          position: "absolute",
+          width: "85.3vw",
+          height: "87.9vh",
+        }}
+      />
       <Sidebar />
-      <div className="page-container">
+
+      <div
+        className="page-container"
+        // style={{ backgroundImage: `url(${backgroundImg})`}}
+      >
         <center>
           <PaymentDetails
             slotPrice={10}

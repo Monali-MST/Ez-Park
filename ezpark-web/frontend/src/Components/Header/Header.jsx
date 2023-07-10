@@ -6,14 +6,14 @@ import { getUser } from "../../helper/getUser";
 
 export default function Header() {
   const pageNameMap = {
-    showbadge: "User Profile",
     bookingpageb: "User Booking",
     cancelbooking: "My Bookings",
     refundpage: "Cancel Booking",
     discountsettings: "Discount Settings",
     adminrefundrequest: "Refund Requests View",
     myaccount: "My Profile",
-    userdashboard: "DashBoard"
+    userdashboard: "DashBoard",
+    admindashboard: "DashBoard"
   };
 
   const getCurrentUser = () => {

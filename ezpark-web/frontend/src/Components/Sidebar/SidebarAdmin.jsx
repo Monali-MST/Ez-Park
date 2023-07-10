@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/Sidebar.css";
 // import { Navbar } from 'react-bootstrap';
 
-const Sidebar = () => {
+const SidebarAdmin = () => {
   return (
     <section>
       <nav className="navsidebar">
@@ -21,32 +21,32 @@ const Sidebar = () => {
               </li>
               <li className="navbar-item">
                 <a href="/bookingpageb" className="menu-btn">
-                  Bookings
+                  Manual Booking
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/cancelbooking" className="menu-btn">
-                  My Bookings
+                <a href="/adminrefundrequest" className="menu-btn">
+                  Refund Requests
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/vehicledetails" className="menu-btn">
-                  Vehicle Details
+                <a href="/discountsettings" className="menu-btn">
+                  Discount Settings
+                </a>
+              </li>
+              <li className="navbar-item">
+                <a href="/staticalview" className="menu-btn">
+                  Statical View
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/about" className="menu-btn">
-                  About Us
+                  About
                 </a>
               </li>
               <li className="navbar-item">
                 <a href="/supoort" className="menu-btn">
                   Support
-                </a>
-              </li>
-              <li className="navbar-item">
-                <a href="/rating" className="menu-btn">
-                  Review & Rating
                 </a>
               </li>
             </ul>
@@ -57,4 +57,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarAdmin;

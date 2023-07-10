@@ -96,8 +96,8 @@ const PaymentDetails = ({ slotPrice, startTime, endTime, bookedDate }) => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-5">
-          <h2>Your Payment Details!</h2>
-          <div className="card mt-4 mb-4 border-0 shadow">
+          <div className="card mt-4 mb-4 border-0 shadow p-3">
+            <h2>Your Payment Details!</h2>
             <div
               className="card-body text-center"
               style={{ fontFamily: "Georgia, serif" }}
@@ -124,11 +124,7 @@ const PaymentDetails = ({ slotPrice, startTime, endTime, bookedDate }) => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      {/* <CheckoutPayButton amount={netAmountCents}/> */}
-      <Button
+            <Button
         variant="warning"
         onClick={() => {
           navigate("/custompayment", { state: { netAmountCents, date } });
@@ -136,6 +132,11 @@ const PaymentDetails = ({ slotPrice, startTime, endTime, bookedDate }) => {
       >
         Pay now
       </Button>
+          </div>
+        </div>
+      </div>
+      {/* <CheckoutPayButton amount={netAmountCents}/> */}
+
     </div>
   );
 };
