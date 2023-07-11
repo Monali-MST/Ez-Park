@@ -30,7 +30,7 @@ const UserBadge = () => {
   }, []);
 
   const badgeImgList = [Gold, Silver, Bronze];
-  const now = userBadge.points / userBadge.minpoint * 100;
+  const now = (userBadge.points / userBadge.minpoint) * 100;
 
   return (
     <div className="userBadge">
@@ -43,13 +43,17 @@ const UserBadge = () => {
             <h3>{userBadge.badge_name}</h3>
             <h5>User Points: {userBadge.points} </h5>
             <div className="text-center mx-5 px-5 d-flex align-items-center">
-              <ProgressBar
-                striped
-                now={now}
-                label={`${now}%`}
-                visuallyHidden
-                className="flex-grow-1"
-              />
+              {userBadge.badge_id != 1 ? (
+                <ProgressBar
+                  striped
+                  now={now}
+                  label={`${now}%`}
+                  visuallyHidden
+                  className="flex-grow-1"
+                />
+              ) : (
+                <div></div>
+              )}
               <img
                 src={badgeImgList[userBadge.badge_id - 2]}
                 width={50}

@@ -34,10 +34,14 @@ async function assignBadges(req, res) {
             sendData.status = 200;
             sendData.badge_name = element.Badge_Name;
             sendData.badge_id = element.Badge_ID;
-            sendData.minpoint = element.Minimum_Points;
             return;
           }
         });
+        if(sendData.badge_id === 1){
+          sendData.minpoint = badgeData[sendData.badge_id-1].Minimum_Points;
+        }else{
+          sendData.minpoint = badgeData[sendData.badge_id-2].Minimum_Points;
+        }
 
         // Check if the user has enough points to earn the lowest badge level
         if (points < badgeData[2].Minimum_Points) {
