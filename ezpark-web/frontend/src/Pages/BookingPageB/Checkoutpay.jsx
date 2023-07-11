@@ -13,7 +13,7 @@ const BookingPageb = () => {
       <img
         className="background-pic"
         src={backgroundImg}
-        alt="profile picture"
+        alt="background-img"
         style={{
           marginLeft: "200px",
           position: "absolute",

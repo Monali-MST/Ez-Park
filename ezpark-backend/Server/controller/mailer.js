@@ -21,7 +21,7 @@ let MailGenerator = new Mailgen({
     theme:"default",
     product:{
         name:"Ez Park",
-        link:"http://localhost:3000/"
+        link:"http://localhost:3000/userdashboard/:id"
     }
 })
 

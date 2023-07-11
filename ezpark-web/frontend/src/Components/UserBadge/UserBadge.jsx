@@ -52,11 +52,22 @@ const UserBadge = () => {
   return (
     <div className="userBadge">
       <div>
-        <div className="badge-level text-center m-5">
-          <img src={badgeImgList[userBadge.badge_id - 1]} width={200} />
-          <h3>{userBadge.badge_name}</h3>
-          <h5>User Points: {userBadge.points} </h5>
-        </div>
+        {!userBadge.err ? (
+          <div className="badge-level text-center m-5">
+            <img src={badgeImgList[userBadge.badge_id - 1]} width={200} />
+            <h3>{userBadge.badge_name}</h3>
+            <h5>User Points: {userBadge.points} </h5>
+          </div>
+        ) : (
+          // <div className="text-center m-5 p-5">
+          //   <i><center>{userBadge.err}</center></i>
+          // </div>
+          <div className="badge-level text-center m-5">
+            <img src={userImg} width={200} />
+            <h3>{userBadge.err}</h3>
+            <h5>User Points: {userBadge.points} </h5>
+          </div>
+        )}
       </div>
     </div>
   );
