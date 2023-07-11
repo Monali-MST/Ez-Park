@@ -22,17 +22,19 @@ async function assignBadges(req, res) {
         const sendData = {
           status: 0,
           badge_name: "",
-          badge_id: 0,
+          badge_id: 4,
           points,
           err: null,
+          minpoint: 0,
         };
 
         // Iterate through each badge level to determine the appropriate badge for the user
         badgeData.forEach((element) => {
-          if (points >= element.Minimum_Points && sendData.msg.badge_id === 0) {
+          if (points >= element.Minimum_Points && sendData.badge_id === 4) {
             sendData.status = 200;
             sendData.badge_name = element.Badge_Name;
             sendData.badge_id = element.Badge_ID;
+            sendData.minpoint = element.Minimum_Points;
             return;
           }
         });
@@ -44,8 +46,9 @@ async function assignBadges(req, res) {
             "You don't have enough points to earn a badge. You need to earn more " +
             (badgeData[2].Minimum_Points - points) +
             " points";
+          sendData.minpoint = badgeData[2].Minimum_Points;
         }
-
+        
         // Send the appropriate response based on the badge assignment status
         return res.status(sendData.status).send(sendData);
       });

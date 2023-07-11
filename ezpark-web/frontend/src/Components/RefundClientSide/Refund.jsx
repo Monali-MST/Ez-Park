@@ -10,6 +10,7 @@ import { getUser } from "../../helper/getUser";
 import Header from "../Header/Header";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
+import getBookingHours from "../../helper/cal_totalBookingHours";
 
 const Refund = () => {
   const [showToast, setShowToast] = useState(false);
@@ -90,9 +91,13 @@ const Refund = () => {
   }, []);
 
   async function handleCancelBook() {
+    const user = getUser();
     try {
       const { status } = await baseUrl.post("/user/save_cancel_booking", {
         Booking_id: bookingData.BookingID,
+        user_id: user.id, 
+        action_id:5, 
+        hours: getBookingHours(bookingData.StartTime, bookingData.EndTime)
       });
       if (status === 201) {
         console.log("Booking canceled successfully");
@@ -112,7 +117,7 @@ const Refund = () => {
         paymentID: paymentId,
         user_id: getUser().id,
         action_id: 5,
-        hours: 6,
+        hours: getBookingHours(bookingData.StartTime, bookingData.EndTime),
       };
       const { status } = await baseUrl.post("/user/cancel_and_refund", data);
       if (status === 201) {

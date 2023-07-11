@@ -38,13 +38,6 @@ const HomePageM = () => {
 
       <h3>Admin Side functions</h3>
       <br></br>
-      {/* <h5>
-        points adding function (register, booking, review, rate, cancel booking,
-        panalty)
-      </h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/pointsaddbutton"> points add</Link>
-      </Button> */}
 
       <h5>Discount Settings (in admin panal)</h5>
       <Button variant="outline-primary" size="sm">
@@ -84,14 +77,15 @@ const HomePageM = () => {
         Test Mail
       </Button>
       <hr></hr>
-      {/* <h5>Refund Requests (in admin panal)</h5>
-      <Button variant="outline-primary" size="sm">
-        <Link to="/adminrefundrequest">to Refund Requests page</Link>
-      </Button> */}
 
       <h5>User Dashboard</h5>
       <Button variant="outline-primary" size="sm">
         <Link to="/userdashboard/:id">to User Dashboard</Link>
+      </Button>
+
+      <h5>Admin Dashboard</h5>
+      <Button variant="outline-primary" size="sm">
+        <Link to="/admindashboard/:id">to User Dashboard</Link>
       </Button>
     </center>
   );

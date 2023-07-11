@@ -48,15 +48,6 @@ export default function Header() {
         <div className="page-name">{pageName}</div>
         <div className="current-user">
           <a href="/showbadge">{user.name}</a>
-          <a href="/pointsystem">
-            <img
-              alt=""
-              src={pointImg}
-              width="40"
-              height="35"
-              className="d-inline-block align-center pointimg"
-            />
-          </a>
           {isAdmin && (
             <div className="user-type">{user.type}</div>
           )}

@@ -20,7 +20,7 @@ const queries = {
   get_point_details: "SELECT * FROM Point_Details;",
   get_refund_level_details: "SELECT * FROM Refund_Level;",
   get_badge_details_by_userid:
-    "SELECT Badge_ID, Badge_Name, Minimum_Points FROM user_details JOIN badge_details ON user_details.Badge = badge_details.Badge_ID WHERE UserID = 124;",
+    "SELECT Badge_ID, Badge_Name, Minimum_Points FROM user_details JOIN badge_details ON user_details.Badge = badge_details.Badge_ID WHERE UserID = '?';",
 
   //refund request
   get_refund_requests:

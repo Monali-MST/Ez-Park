@@ -3,11 +3,11 @@ import axios from "axios";
 import Bronze from "../../Assets/bronze.png";
 import Gold from "../../Assets/gold.png";
 import Silver from "../../Assets/silver.png";
-import userImg from "../../Assets/point_picture.png";
+import userImg from "../../Assets/blue-badge";
 import { getUser } from "../../helper/getUser";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../Components/Header/Header";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, ProgressBar, Row } from "react-bootstrap";
 
 const UserBadge = () => {
   const [userBadge, setUserBadge] = useState({});
@@ -30,41 +30,57 @@ const UserBadge = () => {
   }, []);
 
   const badgeImgList = [Gold, Silver, Bronze];
-
-  // const [user, setUser] = useState({});
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const { id } = getUser();
-  //       const res = await axios.post(
-  //         "http://localhost:8800/api/user/get_user",
-  //         { id }
-  //       );
-  //       setUser(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   fetchUser();
-  // }, []);
+  const now = userBadge.points / userBadge.minpoint * 100;
 
   return (
     <div className="userBadge">
       <div>
         {!userBadge.err ? (
-          <div className="badge-level text-center m-5">
-            <img src={badgeImgList[userBadge.badge_id - 1]} width={200} />
+          <div className="badge-level text-center m-5 p-4">
+            <a href="/pointsystem">
+              <img src={badgeImgList[userBadge.badge_id - 1]} width={200} />
+            </a>
             <h3>{userBadge.badge_name}</h3>
             <h5>User Points: {userBadge.points} </h5>
+            <div className="text-center mx-5 px-5 d-flex align-items-center">
+              <ProgressBar
+                striped
+                now={now}
+                label={`${now}%`}
+                visuallyHidden
+                className="flex-grow-1"
+              />
+              <img
+                src={badgeImgList[userBadge.badge_id - 2]}
+                width={50}
+                className="ml-0"
+              />
+            </div>
           </div>
         ) : (
-          // <div className="text-center m-5 p-5">
-          //   <i><center>{userBadge.err}</center></i>
-          // </div>
-          <div className="badge-level text-center m-5">
-            <img src={userImg} width={200} />
-            <h3>{userBadge.err}</h3>
+          <div className="badge-level text-center m-4 p-4">
+            <a href="/pointsystem">
+              <img src={userImg} width={300} />
+            </a>
+            <i>
+              <h5 className="fw-900 text-danger" style={{ fontSize: "15px" }}>
+                {userBadge.err}
+              </h5>
+            </i>
+            <div className="text-center mx-5 px-5 d-flex align-items-center">
+              <ProgressBar
+                striped
+                now={now}
+                label={`${now}%`}
+                visuallyHidden
+                className="flex-grow-1"
+              />
+              <img
+                src={badgeImgList[userBadge.badge_id - 2]}
+                width={50}
+                className="ml-0"
+              />
+            </div>
             <h5>User Points: {userBadge.points} </h5>
           </div>
         )}

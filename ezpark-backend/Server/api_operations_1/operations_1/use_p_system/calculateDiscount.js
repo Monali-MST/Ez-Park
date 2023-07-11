@@ -4,13 +4,15 @@ const queries = require("../../../sql/sql");
 // Function to calculate the discount rate for a badge level and discount amount for a payment
 async function calculateDiscount(req, res) {
   // Extract badge ID and badge name from the request body
-  const { userId } = req.body;
+  const { id } = req.body;
   connection.query(
     queries.get_badge_details_by_userid,
-    [userId],
+    [id],
     function (user_err, user_data) {
       if (user_err) throw user_err;
-      const badge_data = user_data[0];
+      const badge_data = Object.values(
+        JSON.parse(JSON.stringify(user_data))
+      )[0];
       const badge_id = badge_data.Badge_ID;
       const badge_name = badge_data.Badge_Name;
 
@@ -20,12 +22,14 @@ async function calculateDiscount(req, res) {
         [badge_id],
         function (err, data) {
           if (err) throw err;
-          const discount_data = data[0];
+          const discount_data = Object.values(
+            JSON.parse(JSON.stringify(data))
+          )[0];
           const discount = { discount_name: null, discount_precentage: 0 };
 
           // Check if the discount has an expiration date
           if (discount_data.ExpDate != null) {
-            if (discount_data.ExpDate < new Date()) {
+            if (new Date(discount_data.ExpDate) < new Date()) {
               // Use default discount if expired
               discount.discount_precentage = discount_data.DefaultDiscount;
               discount.discount_name = badge_name;
