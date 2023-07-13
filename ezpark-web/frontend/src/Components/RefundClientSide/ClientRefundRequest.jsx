@@ -3,8 +3,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import baseUrl from "../../Apis/baseUrl";
+import SharedToast from "../../helper/SharedToast";
 
 const ClientRefundRequest = (props) => {
+  const [showToast, setShowToast] = useState(false);
+
   const today = new Date();
   const date =
     today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
@@ -33,6 +36,7 @@ const ClientRefundRequest = (props) => {
         request
       );
       console.log(status);
+      setShowToast(!showToast);
       window.history.back();
     } catch (err) {
       props.onHide();
@@ -93,6 +97,18 @@ const ClientRefundRequest = (props) => {
           </Button>
         </Modal.Footer>
       </Modal>
+      {showToast ? (
+        <SharedToast
+          title="Refund Requests"
+          description="Refund Request has sent successfully!"
+          show={showToast}
+          onHide={() => {
+            setShowToast(false);
+          }}
+        />
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };

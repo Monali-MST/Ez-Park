@@ -31,7 +31,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePageM />} />
+            <Route path="/test" element={<HomePageM />} />
             <Route path="/pointsystem" element={<PointSystem />} />
             {/* <Route path="/checkoutpay" element={<CheckoutPayButton />} /> */}
             <Route path="/successpay" element={<SuccessPay />} />
@@ -52,7 +52,7 @@ function App() {
               element={<ClientRefundRequestPage />}
             />
 
-            <Route path="/homepage" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/userdashboard/:id" element={<UserDashboard />} />

@@ -95,9 +95,9 @@ const Refund = () => {
     try {
       const { status } = await baseUrl.post("/user/save_cancel_booking", {
         Booking_id: bookingData.BookingID,
-        user_id: user.id, 
-        action_id:5, 
-        hours: getBookingHours(bookingData.StartTime, bookingData.EndTime)
+        user_id: user.id,
+        action_id: 5,
+        hours: getBookingHours(bookingData.StartTime, bookingData.EndTime),
       });
       if (status === 201) {
         console.log("Booking canceled successfully");
@@ -124,13 +124,13 @@ const Refund = () => {
         console.log("Refunded and Booking canceled successfully");
         await baseUrl.post("/user/save_refund_details", data);
       }
+      setShowToast(!showToast);
       const user = getUser();
       await sendMail(
         user.name,
         user.email,
         `Booking ID: ${bookingData.BookingID} has been canceled successfully and ${data.amount} USD has been restored`
       );
-      setShowToast(!showToast);
       //  window.history.back();
     } catch (err) {
       alert("Something went wrong.");

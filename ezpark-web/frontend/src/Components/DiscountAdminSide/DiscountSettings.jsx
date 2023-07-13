@@ -8,8 +8,11 @@ import discountMan from "../../Assets/discount-man.jpg";
 import Header from "../Header/Header";
 import SidebarAdmin from "../Sidebar/SidebarAdmin";
 import AdminHeader from "../Header/AdminHeader";
+import SharedToast from "../../helper/SharedToast";
 
 const DiscountSettings = () => {
+  const [showToast, setShowToast] = useState(false);
+
   const [discountDetails, setDiscountDetails] = useState({
     exp_date: "",
     discount_name: "",
@@ -47,7 +50,8 @@ const DiscountSettings = () => {
       axios
         .put("http://localhost:8800/api/user/updateDiscount", discountData)
         .then((res) => {
-          window.location.reload();
+          setShowToast(!showToast);
+          handleReset();
         });
     } catch (err) {
       console.log(err);
@@ -220,6 +224,18 @@ const DiscountSettings = () => {
               </div>
             </Col>
           </Row>
+          {showToast ? (
+            <SharedToast
+              title="Discount Settings"
+              description="Seasonal Discounts has Updated successfully!"
+              show={showToast}
+              onHide={() => {
+                setShowToast(false);
+              }}
+            />
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>
