@@ -10,17 +10,27 @@ const SidebarAdmin = () => {
           <div className="item-list">
             <ul className="menu">
               <li className="navbar-item">
-                <a href="/userdashboard/:id" className="menu-btn active">
+                <a href="/admindashboard/:id" className="menu-btn active">
                   Dashboard
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/myaccount/:id" className="menu-btn">
+                <a href="/adminmyaccount/:id" className="menu-btn">
                   Profile
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/bookingpageb" className="menu-btn">
+                <a href="/usermanagement" className="menu-btn">
+                  User Managment
+                </a>
+              </li>
+              <li className="navbar-item">
+                <a href="/soltmanagement" className="menu-btn">
+                  Slot Managemnt
+                </a>
+              </li>
+              <li className="navbar-item">
+                <a href="/manualbookingpage" className="menu-btn">
                   Manual Booking
                 </a>
               </li>
@@ -42,11 +52,6 @@ const SidebarAdmin = () => {
               <li className="navbar-item">
                 <a href="/about" className="menu-btn">
                   About
-                </a>
-              </li>
-              <li className="navbar-item">
-                <a href="/supoort" className="menu-btn">
-                  Support
                 </a>
               </li>
             </ul>

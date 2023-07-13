@@ -4,7 +4,7 @@ import pointImg from "../../Assets/point_picture.png";
 import "../../styles/Header.css";
 import { getUser } from "../../helper/getUser";
 
-export default function Header() {
+export default function AdminHeader() {
   const pageNameMap = {
     bookingpageb: "User Booking",
     cancelbooking: "My Bookings",
@@ -31,7 +31,7 @@ export default function Header() {
 
   const pageName = getPageName();
   const user = getCurrentUser();
-  const isAdmin = user.type === "admin";
+  const isAdmin = user.type === "super admin";
 
   return (
     <div className="header-details">
@@ -48,9 +48,9 @@ export default function Header() {
         <div className="page-name">{pageName}</div>
         <div className="current-user">
           <a href="/showbadge">{user.name}</a>
-          {/* {isAdmin && (
+          {isAdmin && (
             <div className="user-type">{user.type}</div>
-          )} */}
+          )}
         </div>
       </header>
     </div>

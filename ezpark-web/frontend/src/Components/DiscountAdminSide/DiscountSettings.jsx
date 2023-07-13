@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import discountMan from "../../Assets/discount-man.jpg";
 import Header from "../Header/Header";
 import SidebarAdmin from "../Sidebar/SidebarAdmin";
+import AdminHeader from "../Header/AdminHeader";
 
 const DiscountSettings = () => {
   const [discountDetails, setDiscountDetails] = useState({
@@ -70,7 +71,7 @@ const DiscountSettings = () => {
 
   return (
     <div>
-      <Header />
+      <AdminHeader />
       <SidebarAdmin />
       <div className="page-container">
         <div>

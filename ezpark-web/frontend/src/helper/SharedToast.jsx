@@ -9,7 +9,7 @@ const SharedToast = (props) => {
       className="position-static"
       position="bottom-end"
     >
-      <Toast onClose={props.onHide} show={props.show} delay={3000} autohide>
+      <Toast onClose={props.onHide} show={props.show} delay={6000} autohide>
         <Toast.Header>
           <img src={LOGO} width={"25px"} className="rounded me-2" alt="" />
           <strong className="me-auto">Ez Park</strong>
