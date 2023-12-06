@@ -24,7 +24,7 @@ app.use(bodyparser.json()); // Parse JSON request bodies
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the 'public' directory
 
 // Register route handlers
-app.use('/api/user', operations_2_route)
+app.use('/api/users', operations_2_route)
 app.use('/api/auth', auth_router)
 app.use("/api/user", operations_1_route);
 app.use("/", main_route);

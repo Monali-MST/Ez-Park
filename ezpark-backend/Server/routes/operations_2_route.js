@@ -1,4 +1,6 @@
 const express = require('express');
+const router = express.Router()
+
 const { register, verifyUser, login, getUser, resetPassword } = require('../api_operations_1/operations_2/login/register');
 const vehicle_registration = require('../api_operations_1/operations_2/vehicle_register/vehicle_registration');
 
@@ -20,8 +22,6 @@ const { Extendtime } = require('../api_operations_1/operations_2/booking/Extendt
 const getUserId = require('../api_operations_1/operations_2/user/getUserId');
 const getUserBooking = require('../api_operations_1/operations_2/user/getUserBooking');
 const getVehicles = require('../api_operations_1/operations_2/user/getVehicles');
-
-const router = express.Router()
 
 
 router.route('/register').post(register); // register user

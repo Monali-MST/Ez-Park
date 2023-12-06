@@ -3,15 +3,15 @@ const otpGenerator = require("otp-generator");
 const connection = require("../../../service/connection");
 const queries = require("../../../mysql/sql");
 
-
 /** middleware for verify user */
 async function verifyUser(req, res, next) {
-  const { Email } = req.method == "GET" ? req.query : req.body;
+  const { username } = req.method == "GET" ? req.query : req.body;
   console.log(req.body);
-  const sql = "SELECT * from ezpark.user_details where Email ='" + Email + "'";
+  const sql = "SELECT * from ezpark.user_details where Email ='" + username + "'";
   console.log(sql);
   try {
     connection.query(sql, function (err, result, fields) {
+      console.log(result)
       if (err) {
         console.log(err);
         return res.status(500).send(err);
@@ -28,7 +28,6 @@ async function verifyUser(req, res, next) {
     return res.status(404).send({ msg: "Authentication Error", error });
   }
 }
-
 
 async function register(req, res) {
   const data = req.body;
@@ -69,7 +68,7 @@ async function register(req, res) {
           console.log(exist_email_err);
           res.status(500).send(exist_email_err);
         } else {
-           console.log(result_check_email[0])
+          console.log(result_check_email[0]);
           if (result_check_email.length > 0) {
             return res
               .status(500)
@@ -95,38 +94,40 @@ async function register(req, res) {
 
 async function login(req, res) {
   const data = req.body;
-console.log(data)
-  const sql =
-    "SELECT * from ezpark.user_details where Email ='" + data.username + "'";
-  connection.query(sql, function (err, result, fields) {
-    if (err) {
-      console.log(err);
-      res.status(500).send({ err });
-    } else {
-      if (result.length > 0) {
-        if (result[0].Password === data.password) {
-          const token = jwt.sign(
-            {
-              userid: result.UserID,
-              email: data.Email,
-            },
-            process.env.JWT_SECRET_KEY,
-            { expiresIn: "24h" }
-          );
-          return res.status(200).send({ msg: "Login successful!", token});
-        } else {
-          return res.status(500).send("Password did not matched");
-        }
+  const { username } = req.body;
+  connection.query(
+    queries.get_user_by_email,
+    [username],
+    function (err, result, fields) {
+      if (err) {
+        console.log(err);
+        res.status(500).send({ err });
       } else {
-        return res.status(500).send("Entered email doesn't exist");
+        if (result.length > 0) {
+          if (result[0].Password === data.password) {
+            const token = jwt.sign(
+              {
+                userid: result.UserID,
+                email: data.Email,
+              },
+              process.env.JWT_SECRET_KEY,
+              { expiresIn: "24h" }
+            );
+            return res.status(200).send({ msg: "Login successful!", token });
+          } else {
+            return res.status(500).send("Password did not matched");
+          }
+        } else {
+          return res.status(500).send("Entered email doesn't exist");
+        }
       }
     }
-  });
+  );
 }
 
 async function getUser(req, res) {
   const { email } = req.body;
-  console.log( req.body)
+  console.log(req.body);
   try {
     if (!email) return res.status(501).send({ error: "Invalid email" });
     const sql =
@@ -177,18 +178,18 @@ async function createResetSession(req, res) {
   return res.status(440).send({ msg: "Session expired" });
 }
 
-async function resetPassword (req,res){
+async function resetPassword(req, res) {
   const { Email, password } = req.body;
-  const sql = "UPDATE `ezpark`.`user_details` SET `Password` = ?  WHERE (`Email` = ?);"
+  const sql =
+    "UPDATE `ezpark`.`user_details` SET `Password` = ?  WHERE (`Email` = ?);";
   const value = [password, Email];
   connection.query(sql, value, function (err, result, fields) {
     if (err) {
       console.log(err);
       res.status(500).send({ err });
     } else {
-     return res.status(201).send("Password has been reset")
+      return res.status(201).send("Password has been reset");
     }
-  })
+  });
 }
 module.exports = { verifyUser, getUser, register, login, resetPassword };
-

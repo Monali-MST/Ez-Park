@@ -71,6 +71,9 @@ const queries = {
   get_user_UN_PW:
     "SELECT*FROM `EzPark`.`User_Details` WHAERE `Fname`=? AND `Pword`=?",
 
+  get_user_by_email:
+    "SELECT * from ezpark.user_details where Email =?",
+
   //vehicle
   save_vehicle_details:
     "INSERT INTO `EzPark`.`Vehicle` (`VehicleNo`, `VehicleType`,`Email`) VALUES (?);",
