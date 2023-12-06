@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Discount.css";
+import "../../../styles/Points.css";
 import dicountImg from "../../../Assets/discounts_picture.png";
 import baseUrl from "../../../Apis/baseUrl";
 

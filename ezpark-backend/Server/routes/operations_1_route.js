@@ -65,10 +65,14 @@ router.route("/save_cancel_booking").post(save_cancel_booking, updatePoints);
 router
   .route("/cancel_and_refund_req")
   .post(send_refund_request, save_cancel_booking, updatePoints);
-router.route("/cancel_and_refund").post(stripe_api_refund, save_cancel_booking, updatePoints);
+router
+  .route("/cancel_and_refund")
+  .post(stripe_api_refund, save_cancel_booking, updatePoints);
 
 //refund
-router.route("/refund_and_save_refund_details").post(stripe_api_refund,save_refund_details);
+router
+  .route("/refund_and_save_refund_details")
+  .post(stripe_api_refund, save_refund_details);
 router.route("/save_refund_details").post(save_refund_details);
 router.route("/refundcalculation").post(durationCalculation);
 

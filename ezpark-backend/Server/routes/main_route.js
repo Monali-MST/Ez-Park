@@ -6,7 +6,6 @@ const stripe_api_custom = require("../payment_api/stripe_api_custom");
 const { registerMail } = require("../controller/mailer");
 
 
-
 router.post("/create-payment-intent", async (req, res) => {
   stripe_api_custom(req, res);
 });

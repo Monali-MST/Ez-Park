@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./RefundLevels.css";
+import "../../../styles/Points.css";
 import refundImg from "../../../Assets/refunds_picture.png";
 
 const RefundLevels = () => {

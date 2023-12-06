@@ -9,7 +9,9 @@ const dotenv = require("dotenv"); // Load environment variables from a .env file
 var app = express();
 
 // Import route handlers
+const auth_router = require('./routes/auth_router')
 const operations_1_route = require("./routes/operations_1_route");
+const operations_2_route = require("./routes/operations_2_route");
 const main_route = require("./routes/main_route");
 const random_id_genarate = require("./controller/random_id_genarate");
 
@@ -22,6 +24,8 @@ app.use(bodyparser.json()); // Parse JSON request bodies
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the 'public' directory
 
 // Register route handlers
+app.use('/api/user', operations_2_route)
+app.use('/api/auth', auth_router)
 app.use("/api/user", operations_1_route);
 app.use("/", main_route);
 

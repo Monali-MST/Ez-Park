@@ -38,7 +38,7 @@ function LoginPage() {
       console.log(password);
 
       axios
-        .post("http://localhost:8800/login", {
+        .post("http://localhost:8800/api/user/login", {
           username: username,
           password: password,
         })

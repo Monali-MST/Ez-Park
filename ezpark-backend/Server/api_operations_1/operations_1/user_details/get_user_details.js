@@ -1,11 +1,9 @@
 var connection = require("../../../service/connection");
 const queries = require("../../../mysql/sql");
 
-// Export a function to handle GET requests for badge data
 module.exports = async function get_user_details(req, res) {
   const { id } = req.body;
 
-  // Execute the SQL query and return the results
   connection.query(queries.get_user_details, [id], (err, data) => {
     if (err) return res.json(err);
     // const user = {
@@ -22,8 +20,6 @@ module.exports = async function get_user_details(req, res) {
     //   NIC: data[0].NIC,
     //   email: data[0].Email,
     // };
-
-    // // Send the user data as the response
     // return res.json(user);
 
     return res.json(data);

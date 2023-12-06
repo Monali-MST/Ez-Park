@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Badges.css";
+import "../../../styles/Points.css";
 import Bronze from "../../../Assets/bronze.png";
 import Gold from "../../../Assets/gold.png";
 import Silver from "../../../Assets/silver.png";

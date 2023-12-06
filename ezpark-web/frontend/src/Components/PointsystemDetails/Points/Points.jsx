@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Points.css";
+import "../../../styles/Points.css";
 import pointImg from "../../../Assets/point_picture.png";
 import baseUrl from "../../../Apis/baseUrl";
 

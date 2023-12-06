@@ -1,13 +1,9 @@
 const express = require('express')
 const router = express.Router()
-var login = require('../api_operations_1/admin_operations/public_operations/login');
+const login = require('../api_operations_1/operations_3/login.js');
 
-
-router.post('/login' ,(req,res,next)=>{
+router.post('/login' , async (req,res,next)=>{
     login(req , res)
-})
-
-
-
+});
 
 module.exports = router

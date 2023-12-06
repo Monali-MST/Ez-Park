@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../../Assets/logo_without_text.png";
 import pointImg from "../../../Assets/point_picture.png";
-import "../NavBarPoint/NavBarPoint.css";
+import "../../../styles/Points.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
