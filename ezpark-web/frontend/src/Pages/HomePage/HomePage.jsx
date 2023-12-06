@@ -9,9 +9,12 @@ import myImage2 from "../../Assets/OnlinePayment.jpg";
 import myImage3 from "../../Assets/user_Acc.png";
 import myImage4 from "../../Assets/parking.jpg";
 import myImage5 from "../../Assets/refund.jpg";
+import myImage6 from "../../Assets/playstore.png";
+import myImage7 from "../../Assets/phone.webp";
 import Logo from "../../Assets/logo_without_text.png";
 // import Feedback from "../../Pages/Review_Rating/Feedback";
 import Card from "react-bootstrap/Card";
+import { Col, Row } from "react-bootstrap";
 // import YouTube from 'react-youtube';
 import "../../styles/HomePage.css";
 
@@ -37,29 +40,31 @@ const HomePage = () => {
             "--brightness": "1",
             backgroundImage: `url(${myImage})`,
             backgroundSize: "cover",
-            height: "80vh",
+            height: "100vh",
             filter: "brightness(var(--brightness))",
           }}
         >
-          <div className="logo-section">
-            <div className="logo-img">
-              <img className="logo" src={Logo} alt="logo" />
+          <div style={{ paddingTop: "3vh" }}>
+            <div className="logo-section">
+              <div className="logo-img">
+                <img className="logo" src={Logo} alt="logo" />
+              </div>
+              <div className="logo-name">
+                <span className="yell">EZ </span>
+                <span className="blk">Park</span>
+              </div>
             </div>
-            <div className="logo-name">
-              <span className="yell">EZ </span>
-              <span className="blk">Park</span>
-            </div>
+            <p
+              style={{
+                color: "rgba(255, 255, 255, 0.701)",
+                fontWeight: "bold",
+                fontSize: "30px",
+                textAlign: "center",
+              }}
+            >
+              PARKING AT YOUR FINGERTIPS
+            </p>
           </div>
-          <p
-            style={{
-              color: "#85857F",
-              fontWeight: "bold",
-              fontSize: "20px",
-              textAlign: "center",
-            }}
-          >
-            PARKING AT YOUR FINGERTIPS
-          </p>
           <div
             className="text"
             style={{
@@ -68,7 +73,7 @@ const HomePage = () => {
               fontSize: "3rem",
               fontWeight: "bold",
               marginLeft: "10vh",
-              paddingTop: "30vh",
+              paddingTop: "20vh",
             }}
           >
             <p>
@@ -94,11 +99,13 @@ const HomePage = () => {
         </div>
 
         {/* <button className="start"onClick={handleClick}>VerEmail</button> */}
-
+      </div>
+      <div className="section features" style={{ backgroundColor: "black" }}>
         <h1
           className="text1"
           style={{
-            marginTop: "10px",
+            paddingTop: "15vh",
+            paddingBottom: "5vh",
             color: "#FAA41E",
             fontSize: "2rem",
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
@@ -106,8 +113,6 @@ const HomePage = () => {
         >
           WE HAVE A SPOT FOR YOU.{" "}
         </h1>
-      </div>
-      <div className="section" style={{ backgroundColor: "black" }}>
         <div className="card-container">
           <div className="card-wrapper">
             <Card
@@ -246,6 +251,7 @@ const HomePage = () => {
               {/* <YouTube videoId={videoId} 
                 style={{ width: "fit-content", height: "fit-content"}}
               /> */}
+              <img src={myImage4}></img>
             </div>
           </div>
         </div>
@@ -253,7 +259,7 @@ const HomePage = () => {
       <div className="section">
         <div className="section-title">Location</div>
         <div className="two-column-container">
-          <div className="column"></div>
+          <div className="column video-wrapper"><img style={{marginLeft: "5rem"}} src={myImage}></img></div>
           <div className="column">
             <div>
               <p
@@ -285,23 +291,40 @@ const HomePage = () => {
         className="section"
         style={{ backgroundColor: "#FAA41E", height: "75vh" }}
       >
-        <p
-          style={{
-            fontSize: "50px",
-            color: "white",
-            paddingTop: "10vh",
-            paddingLeft: "5vh",
-          }}
-        >
-          BROWSERING ON YOUR PHONE?
-        </p>
-        <p style={{ fontSize: "50px", color: "white", paddingLeft: "5vh" }}>
-          Try out the Ez Park App on Android.
-        </p>
+        <Row>
+          <Col>
+            <p
+              style={{
+                fontSize: "50px",
+                color: "white",
+                paddingTop: "15vh",
+                paddingLeft: "5vh",
+              }}
+            >
+              BROWSERING ON YOUR PHONE?
+            </p>
+            <p style={{ fontSize: "40px", color: "white", paddingLeft: "5vh" }}>
+              Try out the Ez Park App on Android.
+            </p>
+            <img src={myImage6} alt="playStore" style={{ width: "300px" }} />
+          </Col>
+          <Col>
+            <img
+              src={myImage7}
+              alt="phone"
+              style={{ width: "500px", marginLeft: "100px" }}
+            />
+          </Col>
+        </Row>
       </div>
       <div
         className="section"
-        style={{ backgroundColor: "#CBCBCB", height: "25vh" }}
+        style={{
+          backgroundColor: "#CBCBCB",
+          height: "30vh",
+          border: "3px",
+          borderColor: "black",
+        }}
       >
         <Footer />
       </div>

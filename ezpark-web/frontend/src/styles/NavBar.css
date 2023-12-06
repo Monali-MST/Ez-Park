@@ -1,19 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Titillium Web", sans-serif;
-}
-
-:root {
-  --mainColor: white;
-  --secondaryColor: #faa41e;
-  --textColor: #000;
-}
-
-/* .navbar-header {
+/* 
+.navbar-header {
   position: fixed;
 } */
 
@@ -21,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   padding: 0 2rem;
   background-color: none;
   color: var(--textColor);
@@ -54,6 +40,10 @@
 .navbar-header nav {
   display: flex;
   align-items: center;
+}
+
+.navbar-header header nav {
+  margin-left: 8rem;
 }
 
 @media only screen and (max-width: 1024px) {

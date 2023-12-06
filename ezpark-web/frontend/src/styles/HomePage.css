@@ -1,73 +1,72 @@
-
-.logo-section{
-    display: flex;
-    justify-content: center;
-    
-}
-  
-.logo{
-    width: 70px;
-    height: 70px;
-}
-.logo-name{
-    list-style: none;
-    display: inline-block;
-    padding-left: 10px;
-    padding-top: 20px;
-    font-size: 40px;
-    font-weight: bold;
+.logo-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
 }
 
-.yell{
-    color: #FAA41E;
+.logo {
+  width: 70px;
+  height: 70px;
 }
-  
-.blk{
-    color: #000;
+.logo-name {
+  list-style: none;
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
+.yell {
+  color: #faa41e;
+}
 
-  .section{
-    height: 100vh;
-  }
-  .section-title{
-    background-color: black;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    color: white;
-  }
-  .two-column-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .column {
-    width: 50%; 
-  }
-  
-  .video-wrapper {
-    padding-top: 200px;
-    position: relative;
-    padding-bottom: 56.25%; 
-    overflow: hidden;
-  }
-  
- 
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 8vh;
-    padding-top: 5vh;
-    padding-left: 1vh;
-    padding-right: 1vh;
-  }
- 
- 
-  
+.blk {
+  color: #000;
+}
+
+.section {
+  height: 100vh;
+}
+
+.features{
+  height: 120vh;
+}
+
+.section-title {
+  background-color: black;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: white;
+}
+.two-column-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 50%;
+}
+
+.video-wrapper {
+  padding-top: 100px;
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8vh;
+  padding-top: 5vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
