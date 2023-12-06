@@ -1,5 +1,5 @@
 const connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 function durationCalculation(req, res) {
   const { BookingID } = req.body;

@@ -1,7 +1,7 @@
 // Function to update a user's badge level according to the number of points using the badge_levels table
 
 const connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 async function assignBadges(req, res) {
   const { id } = req.body;

@@ -1,7 +1,7 @@
 // Function to update the points for a user based on an action
 
 const connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 async function updatePoints(req, res) {
   const { user_id, action_id, hours } = req.body;

@@ -1,4 +1,4 @@
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 var connection = require("../../../service/connection");
 const { calculateDiscount } = require("../use_p_system/calculateDiscount");
 const { assignBadges } = require("../use_p_system/assignBadges");

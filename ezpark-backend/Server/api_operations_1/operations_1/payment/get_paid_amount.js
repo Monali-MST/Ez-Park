@@ -1,5 +1,5 @@
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 module.exports = async function get_paid_amount(req, res) {
   const { Booking_id } = req.body;

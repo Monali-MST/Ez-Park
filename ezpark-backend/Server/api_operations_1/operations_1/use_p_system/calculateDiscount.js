@@ -1,5 +1,5 @@
 const connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 // Function to calculate the discount rate for a badge level and discount amount for a payment
 async function calculateDiscount(req, res) {

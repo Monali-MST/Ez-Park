@@ -1,5 +1,5 @@
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 module.exports = async function save_cancel_booking(req, res, next) {
   const today = new Date();

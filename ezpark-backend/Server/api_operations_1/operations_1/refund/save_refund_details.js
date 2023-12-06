@@ -1,5 +1,5 @@
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 module.exports = async function save_refund_details(req, res) {  
   const today = new Date();

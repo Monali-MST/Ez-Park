@@ -1,5 +1,5 @@
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 module.exports = async function save_payment_details(req, res, next) {
   console.log(req.body);

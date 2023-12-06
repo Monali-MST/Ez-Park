@@ -1,7 +1,7 @@
 // need to code here for a sending refund request to database (get request with a reason from user)
 
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 module.exports = async function send_refund_request(req, res, next) {
   const today = new Date();

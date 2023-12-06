@@ -1,5 +1,5 @@
 var connection = require("../../../service/connection");
-const queries = require("../../../sql/sql");
+const queries = require("../../../mysql/sql");
 
 // Export a function to handle GET requests for badge data
 module.exports = async function get_user_details(req, res) {
