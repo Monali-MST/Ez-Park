@@ -5,19 +5,14 @@ import UserBoard from "./UserBoard";
 import { Col, Row } from "react-bootstrap";
 import "../../styles/UserDashboardPage.css";
 
-
 const UserDashboard = () => {
   return (
     <div>
       <Header />
-      <Row>
-        <Col>
-          <Sidebar />
-        </Col>
-        <Col>
-          <UserBoard />
-        </Col>
-      </Row>
+      <Sidebar />
+      <div className="page-container">
+        <UserBoard />
+      </div>
     </div>
   );
 };

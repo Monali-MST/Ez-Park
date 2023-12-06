@@ -16,8 +16,7 @@
 //       };
 //       fetchAllPoints();
 //     }, []);
-  
-  
+
 //     // const location = useLocation();
 //     // const userId = location.pathname.split("/")[2];
 //     const userId = 1;            // should change..........
@@ -25,9 +24,9 @@
 //       addPoints: 3,              // should change..........
 //       currentPoints: 10,         // should change..........
 //     });
-  
+
 //     // setPoints()
-  
+
 //     const handlecheckbutton = async (e) => {
 //       e.preventDefault();
 //       try {
@@ -57,17 +56,13 @@
 //       </div>
 //     );
 //   };
-  
+
 // export default PointsAddButtonTest
 
-import React from 'react'
+import React from "react";
 
 const PointsAddButtonTest = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default PointsAddButtonTest
+export default PointsAddButtonTest;

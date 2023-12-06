@@ -15,7 +15,18 @@ module.exports = async function save_refund_details(req, res) {
   connection.query(queries.insert_refund_details, [values], (err, data) => {
     if (err) {
       console.log(err)
-      return res.json(err)};
-    return res.status(201).send("Refund details has been saved successfully");
+      return res.json(err)
+    };
+
+    connection.query("",[], (updateErr, updateData)=>{
+      if (err) {
+        console.log(err)
+        return res.json(err)
+      };
+      return res.status(201).send("Refund details has been saved successfully");
+    })
+
+
+   // 
   });
 };

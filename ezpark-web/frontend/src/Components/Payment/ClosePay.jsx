@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import errorImage from '../../Assets/icon-cancel.png';
+import React from "react";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import errorImage from "../../Assets/icon-cancel.png";
 
 const ClosePay = () => {
   return (
@@ -11,14 +11,14 @@ const ClosePay = () => {
           <h1 className="mb-3 text-dark">Payment Canceled</h1>
           <p className="lead mb-4 text-dark">
             We're sorry to hear that your payment has been canceled.
-          </p> 
+          </p>
           <Button variant="warning" href="/" className="mb-3">
             Back to Home
           </Button>
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default ClosePay
+export default ClosePay;

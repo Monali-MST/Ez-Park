@@ -12,7 +12,7 @@ import {
 const UserBoard = () => {
   return (
     <div
-      className="container"
+      className="container userdashboard"
       style={{ marginLeft: "50px", marginBottom: "10px" }}
     >
       <div className="row">
@@ -64,7 +64,7 @@ const UserBoard = () => {
                 <FaUserCircle />
               </p>
 
-              <Button href="/myaccount" className="btn-dark">
+              <Button href="/myaccount/:id" className="btn-dark">
                 Go to Profile
               </Button>
             </div>

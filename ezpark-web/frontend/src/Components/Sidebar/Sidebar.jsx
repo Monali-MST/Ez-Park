@@ -5,52 +5,50 @@ import "../../styles/Sidebar.css";
 const Sidebar = () => {
   return (
     <section>
-      <nav className="navbar">
+      <nav className="navsidebar">
         <div className="navbar-container">
-
           <div className="item-list">
             <ul className="menu">
               <li className="navbar-item">
-                <a href="/userdashboard/:id" class="menu-btn active">
-                Dashboard
+                <a href="/userdashboard/:id" className="menu-btn active">
+                  Dashboard
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/myaccount" class="menu-btn">
-                Profile
+                <a href="/myaccount/:id" className="menu-btn">
+                  Profile
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/Slotselection" class="menu-btn">
-                Bookings
+                <a href="/bookingpageb" className="menu-btn">
+                  Bookings
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/mybooking" class="menu-btn">
-                My Bookings
+                <a href="/cancelbooking" className="menu-btn">
+                  My Bookings
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/vehicledetails" class="menu-btn">
-                Vehicle Details
+                <a href="/vehicledetails" className="menu-btn">
+                  Vehicle Details
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/about" class="menu-btn">
-                About Us
+                <a href="/about" className="menu-btn">
+                  About Us
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/supoort" class="menu-btn">
-                Support
+                <a href="/supoort" className="menu-btn">
+                  Support
                 </a>
               </li>
               <li className="navbar-item">
-                <a href="/rating" class="menu-btn">
-                Review & Rating
+                <a href="/rating" className="menu-btn">
+                  Review & Rating
                 </a>
               </li>
-              
             </ul>
           </div>
         </div>

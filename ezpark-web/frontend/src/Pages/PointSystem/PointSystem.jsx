@@ -8,7 +8,7 @@ import NavBarPoint from "../../Components/PointsystemDetails/NavBarPoint/NavBarP
 const PointSystem = () => {
   return (
     <div>
-      <NavBarPoint/>
+      <NavBarPoint />
       <Badges />
       <Points />
       <Discount />
